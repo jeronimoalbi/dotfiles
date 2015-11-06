@@ -1,0 +1,102 @@
+*vim_cheatsheet.txt*    Vim cheatsheet
+
+*cheatsheet*
+
+
+select     *cheatsheet-select*
+======
+
+ve          select until end of word (e many times keep selecting)
+vb          select until begining of word (b many times keep selecting)
+
+editing     *cheatsheet-editing*
+=======
+
+cc          change whole line
+ciw         change the word under cursor
+cw          change word from cursor position
+ci{         change inside brackets {} (works with other characters like '[')
+yi{         yank inside brackets (same as above)
+di{         delete inside brackets (same as above)
+yy          yank line to clipboard
+zz          center current line in screen
+ZZ          save AND close buffer or quit for last buffer
+I           insert at beginning of line
+i           insert before cursor
+a           insert after cursor
+A           insert at end of line
+J           join with next line
+X or x      delete char before/after
+gf          open file path (under cursor)
+,p          paste without formating
+:w!!        save as root
+:only       leave only current window open (C-w o)
+<F2>        toggle line number display
+,-          remove last search highlight
+,nt         display NERDTree
+,ut         toggle undo tree
+,ff         call Ctrl-P plugin
+,fm         search file in MRU files
+,fb         search file in buffer files
+,ft         search a name in TAGS list
+,tl         toggle taglist window
+TT          (read only mode) toggle taglist window
+C-e         expand Zendcoding expression
+C-k         move line up
+C-j         move line down
+
+
+jump        *cheatsheet-jump*
+====
+
+<C-a>l          jump to last jump point
+<C-a>c          jump to last changed line
+<C-a>h <C-o>    jump to previous jump point in stack
+<C-a>l          jump to next jump point in stack
+
+
+tags        *cheatsheet-tags*
+====
+
+,tt         display tags window
+C-l         go to next tag
+C-h         go to previous tag
+C-j         go to next tag in stack
+C-k         back to previous tag in stack
+
+
+folding     *cheatsheet-folding*
+=======
+
+<space>     toggle fold (current block)
+zj          go to next fold
+zk          go to previous fold
+zM          close all open folds
+zR          open all folds
+
+
+marks   *cheatsheet-marks*
+=====
+
+'.      jump to position where last change occurred in current buffer
+''      jump back (to line in current buffer where jumped from)
+ma      set mark a at current cursor location
+:marks  list all the current marks
+]'      jump to next line with a lowercase mark
+['      jump to previous line with a lowercase mark
+
+:delmarks!   delete all lowercase marks for the current buffer (a-z)
+:delmarks a  delete mark a
+:delmarks a-d    delete marks a, b, c, d
+:delmarks aA     delete marks a, A
+
+
+indentation     *cheatsheet-indentation*
+===========
+view
+  >> indent
+  << dedent
+
+insert
+  Ctr-T indent
+  Ctr-D dedent

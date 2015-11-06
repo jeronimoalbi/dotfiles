@@ -1,0 +1,180 @@
+"
+" Vim settings file
+"
+" The first time run:
+"   git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+"
+" Then from vim:
+"   :BundleInstall
+"
+" Or from command line:
+"   vim +BundleInstall
+"
+
+" Disable Vi compatibility (be iMproved !)
+set nocompatible
+set backspace=2
+
+" Set this option to off because is required by Vundle
+filetype off
+
+" Use comma as shortcut prefix
+let mapleader = ","
+
+" Enable reading of .vimrc from local directories
+set ex
+set secure
+
+" Always display status bar
+set laststatus=2
+
+" Enable incremental search
+set incsearch
+
+" Allways highlight search words
+set hlsearch
+
+" Allow vim to switch buffers when when current buffer is not saved
+set hidden
+
+" Autocomplete vim commands and display all possible similar commands on <TAB>
+set wildmenu
+set wildmode=list:longest
+set wildignore=*.swp,*.bak,*.pyc,*.pyo,*.min.js,*.min.css,*.so
+set wildignore+=*_build/*
+set wildignore+=*/coverage/*
+
+" Turn backup files off
+set nobackup
+set nowb
+set noswapfile
+
+" Dont wrap long lines
+set nowrap
+
+" Number of spaces that a pre-existing tab is equal to.
+" For the amount of space used for a new tab use shiftwidth.
+set tabstop=4
+
+" Make backspace use 4 characters
+set softtabstop=4
+
+" What to use for an indent
+set shiftwidth=4
+set expandtab
+
+" This enables Omnicompletion using ^X^O
+filetype plugin on
+set completeopt=menuone,longest,preview
+
+" For full syntax highlighting:
+syntax on
+
+" Automatically indent based on file type: ``filetype indent on``
+" Keep indentation level from previous line: ``set autoindent``
+set autoindent
+
+" By default dont fold files
+set nofoldenable
+
+" When displaying a file in a window, open all folds (you can
+" fold them back, either one at a time or by changing the
+" 'foldlevel')
+" To close them all, use ":set foldlevel=0" or zM
+au BufWinEnter * set foldlevel=999999
+
+" Fold by indentation
+set foldmethod=indent
+
+" Fold functions and methods only
+set foldnestmax=2
+
+" Use UNIX (\n) line endings.
+" Only used for new files so as to not force existing files to change their
+" line endings.
+set fileformat=unix
+
+" Enable Vundle
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" Let Vundle manage Vundle
+Bundle 'gmarik/vundle'
+
+" Load Vundles
+runtime custom.vimrc/vundles.vimrc
+
+" Set this option because is required by Vundle
+filetype plugin indent on
+
+" Set default color scheme
+if !has("gui_running")
+  set t_Co=256
+endif
+" Set dark background and make line numbers gray to be visible
+set background=dark
+"colorscheme distinguished
+colorscheme hybrid
+highlight LineNr guifg=Grey53
+
+" Setup specific console or GUI options
+if has("gui_running")
+  set guioptions-=m
+  set guioptions-=T
+  set guioptions-=r
+  set guioptions-=L
+  set nonu
+  set lines=40 columns=79
+  set guifont=Inconsolata\ Medium\ 11
+  "set guifont = GohuFont-Medium:h14
+  " disable mouse visual mode
+  set mouse-=a
+  set background=light
+  colorscheme lucius
+
+  " Highlight error lines
+  highlight SyntasticErrorLine guibg=brown
+
+  " Enable selected line marker after themes was applied
+  "set cursorline
+  "autocmd WinEnter * setlocal cursorline
+  "autocmd WinLeave * setlocal nocursorline
+  " highlight CursorLineNr guibg=Grey guifg=Yellow
+else
+  set nonu
+
+  " Enable selected line marker after themes was applied
+  set cursorline
+  autocmd WinEnter * setlocal cursorline
+  autocmd WinLeave * setlocal nocursorline
+  highlight CursorLine ctermbg=234 cterm=none term=none
+endif
+
+" Display function name in status bar
+let g:ctags_statusline=1
+
+" By default load tags from 'tags' files
+set tags=tags
+
+" Autoclose PUM windows on insert or move
+autocmd CursorMovedI *  if pumvisible() == 0|silent! pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|silent! pclose|endif
+
+" Load plugin settings
+runtime custom.vimrc/plugins.vimrc
+
+" Load command mappings
+runtime custom.vimrc/commands.vimrc
+
+" Detect handlebars templates
+au BufRead,BufNewFile *.handlebars,*.hbs set ft=html syntax=handlebars
+
+" Load vim settings by file
+au BufRead,BufNewFile *.py source ~/vimrc/python.vimrc
+au BufRead,BufNewFile *.js source ~/vimrc/javascript.vimrc
+au BufRead,BufNewFile *.pt, *.*ml source ~/vimrc/html.vimrc
+
+" Load linux settings
+if has("unix")
+  runtime custom.vimrc/linux.vimrc
+endif

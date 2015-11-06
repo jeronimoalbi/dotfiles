@@ -1,0 +1,26 @@
+syntax: glob
+
+tags
+tags.*
+.vimrc
+*.swp
+*.log
+Session*.vim
+
+# IPython notebooks (#ipython notebook)
+*ipynb*
+
+# project files
+*.kpf
+*.tmproj
+*.komodoproject
+*.komodotools
+*.idea
+*.idea/*
+
+# compiled
+*.pyc
+
+# local ini files
+*_local.ini
+.agignore
