@@ -1,4 +1,6 @@
 [ui]
+username = Jerónimo Albi <jeronimo.albi@gmail.com>
+ssh = ssh -C
 ignore = ~/.hgignore
 editor = vim
 merge = meld
