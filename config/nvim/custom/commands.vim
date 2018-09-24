@@ -1,12 +1,9 @@
-" Save using control+s
-map <C-s> <esc>:w<cr>
-imap <C-s> <esc>:w<cr>
-
 " Make it easy to edit this file
 nmap <silent> <leader>ev :e $MYVIMRC<cr>
+nmap <silent> <leader>ep :e ~/.config/nvim/custom/plugins.vim<cr>
 
 " Open my vim cheatsheet
-nmap <silent> <leader>cs :sp $HOME/.vim/doc/vim_cheatsheet.txt<CR>
+"nmap <silent> <leader>cs :sp $HOME/.vim/doc/vim_cheatsheet.txt<CR>
 
 " Edit in place of current file
 nmap <leader>e. :e <C-R>=expand("%:p:h") . "/" <CR>
@@ -20,11 +17,14 @@ noremap <leader>pm :set paste<CR>:put *<CR>:set nopaste<CR>
 inoremap <C-c>pm <C-r><C-p>*
 
 " Enter visual line mode
-nmap <Leader><Leader> V
+nmap <leader><leader> V
 
 " Navigate forward/backward in the tags stack
-map <C-j> <C-T>
-map <C-k> <C-]>
+map <leader>[ <C-T>
+map <leader>] <C-]>
+" Search tag and if many exists display select window
+nmap <silent> <leader>tt :exec("tselect ".expand("<cword>"))<CR>
+inoremap <C-c>tt <Esc>:exec("tselect ".expand("<cword>"))<CR>
 
 " Mappings to jump to different locations
 " 1. Jump to last jump point
@@ -36,16 +36,8 @@ map <C-a>h <C-o>
 " 4. Jump to next jump point in stack
 map <C-a>l <Tab>
 
-" navigate next and previous tag
-map <C-l> ]'
-map <C-h> ['
-
 " Disable search highlight by pressing ,/
 nmap <silent> <leader>- :nohlsearch<CR>
-
-" Search tag and if many exists display select window
-nmap <silent> <leader>tt :exec("tselect ".expand("<cword>"))<CR>
-inoremap <C-c>tt <Esc>:exec("tselect ".expand("<cword>"))<CR>
 
 " Allow save file using sudo after open it by typing w!!
 cmap w!! w !sudo tee % >/dev/null
@@ -55,9 +47,8 @@ inoremap <C-c>ww <Esc>:w !sudo tee % >/dev/null<CR>
 " Toggle line numbers and fold column for easy copying:
 nnoremap <silent> <leader>ln :set nonumber!<CR>:set foldcolumn=0<CR>
 
-" Circle buffers using TAB
-nnoremap <C-Tab> :bnext<CR>
-nnoremap <S-C-Tab> :bprevious<CR>
+" Print current file path
+nmap <leader>fp :!echo %<CR>
 
 " Define a function to toggle background value
 if !exists("BgToggle")

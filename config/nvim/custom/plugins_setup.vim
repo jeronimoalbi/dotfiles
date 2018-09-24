@@ -11,6 +11,7 @@ inoremap <C-c>ff <Esc>:CtrlP<CR>
 inoremap <C-c>fm <Esc>:CtrlPMRU<CR>
 inoremap <C-c>fb <Esc>:CtrlPBuffer<CR>
 inoremap <C-c>ft <Esc>:CtrlPTag<CR>
+inoremap <C-c>fr <Esc>:CtrlPYankring<CR>
 
 "
 " Ctrlp settings
@@ -26,7 +27,10 @@ let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*'
 let g:ctrlp_dotfiles = 0
 
 " Ignore files independently of wildignore
-let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg)$',
+  \ 'file': '\v\.vim$',
+  \ }
 
 " List files in repository or using find by default
 let g:ctrlp_user_command = {
@@ -34,11 +38,31 @@ let g:ctrlp_user_command = {
   \ 1: ['.git/', 'cd %s && git ls-files'],
   \ 2: ['.hg/', 'hg --cwd %s locate -I .'],
   \ },
-\ 'fallback': 'find %s -type f'
+\ 'fallback': 'find %s -type f -not -path "*/\.*" -not -path "*/*egg-*"'
 \ }
 
-" Enable some extensions
+" Enable some extensions settings
 let g:ctrlp_extensions = ['tag']
+
+" Ack settings
+" By default change Ack to not open the first matched file
+cnoreabbrev Ack Ack!
+nnoremap <Leader>a :Ack!<Space>
+
+" Isort settings
+" Disable isort (python) key mapping
+let g:vim_isort_map = ''
+
+
+" CtrlP Ag settings
+let g:ctrlp_ag_ignores = '--ignore .git
+    \ --ignore .bash_history
+    \ --ignore "*.out"
+    \ --ignore "*.log"
+    \ --ignore "*.vim"
+    \ --ignore "tags"
+    \ --ignore "deps/*"
+    \ --ignore "_build/*"'
 
 "
 " Vim move plugin
@@ -56,8 +80,9 @@ vmap <C-v> <Plug>(expand_region_shrink)
 "
 " Yankring settings
 "
-nmap <silent> <leader>yr :YRShow<CR>
-inoremap <C-c>yr <Esc>:YRShow<CR>
+nmap <silent> <leader>yr :CtrlPYankring<CR>
+inoremap <C-c>yr <Esc>:CtrlPYankring<CR>
+
 
 "
 " Taglist plugin settings
@@ -100,41 +125,17 @@ let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
 let NERDTreeMinimalUI=1
 
 "
-" Syntastic
+" Neomake
 "
-" Disable status bar text
-let g:syntastic_stl_format = ''
-
-" Filter some pylint error codes
-let g:syntastic_python_pylint_args = '-d E1101,C0111  --msg-template="{path}:{line}: [{msg_id}] {msg}" -r n'
-
-" Disable xmllint
-let g:loaded_syntastic_xml_xmllint_checker = 0
-
-" Set python checker list
-let g:syntastic_python_checkers = ['python', 'flake8', 'pylint', 'py3kwarn']
-
-" Set javascriot checkers
-let g:syntastic_javascript_checkers = ['jshint']
-
-" Dont check on open or save
-let g:syntastic_check_on_open = 0
+let g:neomake_python_pylint_args = [
+    \ '-f', 'text',
+    \ '--msg-template="{path}:{line}:{column}:{C}: [{symbol}] {msg}"',
+    \ '-d', 'E1101,C0111,R0901',
+    \ '-r', 'n'
+    \ ]
 
 " Use simple check on save
-autocmd BufWritePost *.py :SyntasticCheck flake8
-
-"
-" Quickfix signs
-"
-" Which gutter symbols to display:
-"
-"   rel     ... relative line numbers
-"   cursor  ... current line
-"   qfl     ... |quickfix| list
-"   loc     ... |location| list
-"   vcsdiff ... mark changed lines
-"   marks   ... marks |'a|-zA-Z
-let g:quickfixsigns_classes=['qfl', 'loc', 'marks', 'breakpoints']
+autocmd BufWritePost *.py :Neomake flake8
 
 " Gundo
 nnoremap <leader>ut :GundoToggle<CR>

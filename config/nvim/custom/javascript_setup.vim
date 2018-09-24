@@ -1,6 +1,4 @@
-set encoding=utf-8
 set omnifunc=javascriptcomplete#CompleteJS
-set textwidth=80
 set foldmethod=syntax
 set foldlevelstart=1
 set foldnestmax=2
