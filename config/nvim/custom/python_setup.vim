@@ -43,6 +43,10 @@ nmap <silent> <leader>ds :Pydocstring<CR>
 
 " Execute BOS linting command in a container
 nnoremap <leader>ml :execute "! make lint files=" . @%<CR>
+nnoremap <leader>mi :execute "! make isort file=" . @%<CR>
+
+" Increase the width of the tagbar plugin
+let g:tagbar_width = 100
 
 " Disaple indent highlighting for python syntax plugin
 let g:python_highlight_indents = 0
@@ -54,6 +58,7 @@ let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<Enter>']
 let g:ycm_key_list_stop_completion = ['<C-y>']
 let g:ycm_key_invoke_completion = '<C-Space>'
 let g:ycm_goto_buffer_command = 'same-buffer'
+let g:ycm_confirm_extra_conf = 0
 " let g:ycm_add_preview_to_completeopt = 0
 " let g:ycm_autoclose_preview_window_after_completion = 1
 " let g:ycm_autoclose_preview_window_after_insertion = 1

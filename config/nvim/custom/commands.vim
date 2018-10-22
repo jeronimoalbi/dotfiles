@@ -21,7 +21,7 @@ nmap <leader><leader> V
 
 " Navigate forward/backward in the tags stack
 map <leader>[ <C-T>
-map <leader>] <C-]>
+map <leader>] g]
 " Search tag and if many exists display select window
 nmap <silent> <leader>tt :exec("tselect ".expand("<cword>"))<CR>
 inoremap <C-c>tt <Esc>:exec("tselect ".expand("<cword>"))<CR>

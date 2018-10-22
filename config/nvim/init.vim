@@ -37,7 +37,7 @@ runtime custom/plugins.vim
 call plug#end()
 
 " Set dark background and make line numbers gray to be visible
-set background=dark
+set background=light
 silent! colorscheme lucius
 
 " Enable selected line marker after themes was applied

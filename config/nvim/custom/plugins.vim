@@ -6,7 +6,6 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'Lokaltog/vim-distinguished'
 Plug 'jonathanfilip/vim-lucius'
 Plug 'tomasr/molokai'
-Plug 'tpope/vim-fugitive'
 
 " Common
 Plug 'scrooloose/nerdtree'
@@ -17,6 +16,8 @@ Plug 'tpope/vim-repeat'
 Plug 'matze/vim-move'
 Plug 'mileszs/ack.vim'
 Plug 'dhruvasagar/vim-zoom'
+" Neovim plugin to allow font and line spacing from remote UIs
+Plug 'equalsraf/neovim-gui-shim'
 
 " Development
 Plug 'benekastah/neomake'
