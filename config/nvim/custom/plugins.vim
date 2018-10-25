@@ -47,6 +47,7 @@ Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/sy
 "Plug 'shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 "Plug 'zchee/deoplete-go', { 'do': 'make'}
 "Plug 'zchee/deoplete-jedi',
+Plug 'Yggdroot/indentLine'
 
 " Syntax
 Plug 'me-vlad/python-syntax.vim'
