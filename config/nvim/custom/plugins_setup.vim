@@ -13,8 +13,8 @@ inoremap <C-c>fb <Esc>:CtrlPBuffer<CR>
 inoremap <C-c>ft <Esc>:CtrlPTag<CR>
 inoremap <C-c>fr <Esc>:CtrlPYankring<CR>
 
-" Disable Tabs in gonvim UI
-let g:gonvim_draw_tabline = 0
+" Set the theme for the airline bar plugin
+let g:airline_theme='bubblegum'
 
 "
 " Ctrlp settings
