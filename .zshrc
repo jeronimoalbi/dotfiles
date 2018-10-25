@@ -40,4 +40,4 @@ export LS_COLORS=$LS_COLORS:'*.pyc=0;30'
 export PROJECT_HOME=$HOME/projects
 export GOROOT=/usr/local/go
 export GOPATH=$PROJECT_HOME/golang
-export PATH=$HOME/bin:$GOPATH/bin:$GOROOT/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+export PATH=$HOME/bin:$GOPATH/bin:$GOROOT/bin:/usr/local/opt/python/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
