@@ -1,3 +1,6 @@
+" Fonts
+Plug 'tonsky/firacode' " Requires manual font installation
+
 " Themes
 Plug 'w0ng/vim-hybrid'
 Plug 'freeo/vim-kalisi'
@@ -16,8 +19,6 @@ Plug 'tpope/vim-repeat'
 Plug 'matze/vim-move'
 Plug 'mileszs/ack.vim'
 Plug 'dhruvasagar/vim-zoom'
-" Neovim plugin to allow font and line spacing from remote UIs
-Plug 'equalsraf/neovim-gui-shim'
 
 " Development
 Plug 'benekastah/neomake'
@@ -38,8 +39,6 @@ Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 Plug 'andrewradev/switch.vim'
 Plug 'sukima/xmledit'
-" TODO: C-l messes with GoTo instropection in Ycm
-" Plug 'heavenshell/vim-pydocstring'
 Plug 'fisadev/vim-isort'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer'  }
 Plug 'jodosha/vim-godebug'
@@ -49,17 +48,20 @@ Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/sy
 "Plug 'zchee/deoplete-jedi',
 Plug 'Yggdroot/indentLine'
 
+" MacOS
+if system('uname -s') == "Darwin\n"
+  Plug 'rizzatti/dash.vim'
+endif
+
 " Syntax
 Plug 'me-vlad/python-syntax.vim'
 Plug 'vim-scripts/doctest-syntax'
 Plug 'pangloss/vim-javascript'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-"Plug 'mxw/vim-jsx'
-"Plug 'evanmiller/nginx-vim-syntax'
-"Plug 'mustache/vim-mustache-handlebars'
-"Plug 'groenewege/vim-less'
-"Plug 'cakebaker/scss-syntax.vim'
+Plug 'mxw/vim-jsx'
+Plug 'mustache/vim-mustache-handlebars'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'glench/vim-jinja2-syntax'
 Plug 'elzr/vim-json'
 Plug 'ekalinin/dockerfile.vim'
+Plug 'cespare/vim-toml'

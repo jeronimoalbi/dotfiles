@@ -1,6 +1,6 @@
 let s:editor_root=expand("~/.config/nvim")
 
-let g:python_host_prog='python'
+let g:python_host_prog = 'python'
 let g:python3_host_prog = 'python3'
 
 " Use comma as shortcut prefix
@@ -31,6 +31,9 @@ map <PageDown> <NOP>
 imap <PageUp> <NOP>
 imap <PageDown> <NOP>
 
+" Don't warn when using a different vim
+let g:go_version_warning = 0
+
 " Install plugins
 call plug#begin('~/.config/nvim/plugged')
 runtime custom/plugins.vim
@@ -47,6 +50,10 @@ autocmd WinLeave * setlocal nocursorline
 
 " By default load tags from 'tags' files
 set tags=tags
+
+" VimR specific settings
+" if has("gui_vimr")
+" endif
 
 runtime custom/plugins_setup.vim
 runtime custom/commands.vim
