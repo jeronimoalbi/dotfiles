@@ -1,3 +1,6 @@
+" Fonts
+Plug 'tonsky/firacode' " Requires manual font installation
+
 " Themes
 Plug 'w0ng/vim-hybrid'
 Plug 'freeo/vim-kalisi'
@@ -44,14 +47,20 @@ Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/sy
 "Plug 'zchee/deoplete-jedi',
 Plug 'Yggdroot/indentLine'
 
+" MacOS
+if system('uname -s') == "Darwin\n"
+  Plug 'rizzatti/dash.vim'
+endif
+
 " Syntax
 Plug 'me-vlad/python-syntax.vim'
 Plug 'vim-scripts/doctest-syntax'
 Plug 'pangloss/vim-javascript'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-"Plug 'evanmiller/nginx-vim-syntax'
-"Plug 'mustache/vim-mustache-handlebars'
+Plug 'mxw/vim-jsx'
+Plug 'mustache/vim-mustache-handlebars'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'glench/vim-jinja2-syntax'
 Plug 'elzr/vim-json'
 Plug 'ekalinin/dockerfile.vim'
+Plug 'cespare/vim-toml'

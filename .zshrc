@@ -40,4 +40,10 @@ export LS_COLORS=$LS_COLORS:'*.pyc=0;30'
 export PROJECT_HOME=$HOME/projects
 export GOROOT=/usr/local/go
 export GOPATH=$PROJECT_HOME/golang
-export PATH=$HOME/bin:$GOPATH/bin:$GOROOT/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+export PATH=$HOME/bin:$GOPATH/bin:$GOROOT/bin:/usr/local/opt/python/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+export PIPENV_VENV_IN_PROJECT=1
+
+# THis fixes the ":CheckHealth" command in neovim to detech the virtualenv without any warnings
+if [[ -n $VIRTUAL_ENV && -e "${VIRTUAL_ENV}/bin/activate" ]]; then
+  source "${VIRTUAL_ENV}/bin/activate"
+fi
