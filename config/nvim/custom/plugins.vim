@@ -19,9 +19,11 @@ Plug 'tpope/vim-repeat'
 Plug 'matze/vim-move'
 Plug 'mileszs/ack.vim'
 Plug 'dhruvasagar/vim-zoom'
+Plug 'skywind3000/asyncrun.vim'
 
 " Development
 Plug 'benekastah/neomake'
+Plug 'sbdchd/neoformat'
 Plug 'tpope/vim-fugitive'
 Plug 'jlfwong/vim-mercenary'
 Plug 'majutsushi/tagbar'
@@ -57,8 +59,8 @@ endif
 Plug 'me-vlad/python-syntax.vim'
 Plug 'vim-scripts/doctest-syntax'
 Plug 'pangloss/vim-javascript'
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'mxw/vim-jsx'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'glench/vim-jinja2-syntax'

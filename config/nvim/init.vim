@@ -63,5 +63,6 @@ au BufRead,BufNewFile *.py runtime custom/python_setup.vim
 au BufRead,BufNewFile *.go runtime custom/go_setup.vim
 au BufRead,BufNewFile *.json runtime custom/json_setup.vim
 au BufRead,BufNewFile *.js runtime custom/javascript_setup.vim
+au BufRead,BufNewFile *.jsx runtime custom/javascript_setup.vim
 au BufRead,BufNewFile *.xml runtime custom/html_setup.vim
 au BufRead,BufNewFile *.html runtime custom/html_setup.vim

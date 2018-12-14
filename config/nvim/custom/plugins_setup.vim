@@ -101,10 +101,16 @@ inoremap <C-c>tl <Esc>:TagbarToggle<CR>
 
 "
 " Emmet (Zencoding)
-" Trigger with: <C-Y>,
+" Trigger by default with: <C-Y>,
 "
 let g:user_emmet_install_global = 0
-autocmd FileType html,css,pt,zcml,xml EmmetInstall
+let g:user_emmet_leader_key='<C-H>'
+let g:user_emmet_settings = {
+\ 'javascript.jsx' : {
+  \ 'extends' : 'jsx',
+  \ },
+\ }
+autocmd FileType html,css,xml EmmetInstall
 
 "
 " Tagbar
