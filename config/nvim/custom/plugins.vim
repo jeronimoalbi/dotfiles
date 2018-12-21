@@ -24,6 +24,7 @@ Plug 'skywind3000/asyncrun.vim'
 " Development
 Plug 'benekastah/neomake'
 Plug 'sbdchd/neoformat'
+Plug 'prettier/vim-prettier'
 Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-signify'

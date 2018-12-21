@@ -1,3 +1,4 @@
+set conceallevel=0
 let g:indentLine_noConcealCursor=""
 
 set tabstop=2

@@ -101,16 +101,21 @@ inoremap <C-c>tl <Esc>:TagbarToggle<CR>
 
 "
 " Emmet (Zencoding)
-" Trigger by default with: <C-Y>,
+" Trigger by default with: <C-y>,
 "
 let g:user_emmet_install_global = 0
-let g:user_emmet_leader_key='<C-H>'
 let g:user_emmet_settings = {
-\ 'javascript.jsx' : {
+\ 'javascript' : {
   \ 'extends' : 'jsx',
   \ },
 \ }
-autocmd FileType html,css,xml EmmetInstall
+autocmd FileType html,css,xml,*.jsx EmmetInstall
+
+"
+" JSX (mxw/vim-jsx)
+"
+" Enable only for ".jsx" files
+let g:jsx_ext_required = 1
 
 "
 " Tagbar
@@ -142,9 +147,11 @@ let g:neomake_python_pylint_args = [
     \ '-d', 'E1101,C0111,R0901',
     \ '-r', 'n'
     \ ]
+let g:neomake_javascript_enabled_makers = ['eslint']
 
 " Use simple check on save
 autocmd BufWritePost *.py :Neomake flake8
+autocmd BufWritePost *.js,*.jsx :Neomake eslint
 
 " Gundo
 nnoremap <leader>ut :GundoToggle<CR>
