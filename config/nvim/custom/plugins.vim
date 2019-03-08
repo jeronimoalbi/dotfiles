@@ -24,7 +24,7 @@ Plug 'skywind3000/asyncrun.vim'
 " Development
 Plug 'benekastah/neomake'
 Plug 'sbdchd/neoformat'
-Plug 'prettier/vim-prettier'
+Plug 'prettier/vim-prettier', {'do': 'npm install', 'for': ['javascript']}
 Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-signify'
@@ -42,7 +42,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'andrewradev/switch.vim'
 Plug 'sukima/xmledit'
 Plug 'fisadev/vim-isort'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer'  }
+Plug 'Valloric/YouCompleteMe', {'do': './install.py --gocode-completer --ts-completer'}
 Plug 'jodosha/vim-godebug'
 Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
 "Plug 'shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
