@@ -35,6 +35,8 @@ source $ZSH/oh-my-zsh.sh
 
 bindkey -M isearch '^R' history-incremental-search-backward
 bindkey -M isearch '^S' history-incremental-search-forward
+bindkey -M vicmd '^R' history-incremental-search-backward
+bindkey -M vicmd '^S' history-incremental-search-forward
 
 export LS_COLORS=$LS_COLORS:'*.pyc=0;30'
 export PROJECT_HOME=$HOME/projects
@@ -52,3 +54,8 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Docker daemon host
+export DOCKER_HOST=127.0.0.1:2375
+
+bindkey -v
