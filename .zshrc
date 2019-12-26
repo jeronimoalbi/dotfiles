@@ -29,7 +29,7 @@ ZSH_THEME="candy"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git python extract go)
+plugins=(git python extract go vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -59,3 +59,6 @@ export NVM_DIR="$HOME/.nvm"
 export DOCKER_HOST=127.0.0.1:2375
 
 bindkey -v
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
