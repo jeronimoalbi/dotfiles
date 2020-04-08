@@ -45,6 +45,16 @@ map <C-h> <C-o>
 imap <C-l> <esc>:YcmCompleter GoTo<cr>
 imap <C-h> <C-o>
 
+let g:go_gopls_enabled = 1
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+
+" Disable syntastic for go because vim-go is used
+" let g:syntastic_go_checkers  =['go', 'golint', 'govet', 'errcheck']
+let g:syntastic_go_checkers = []
+let g:syntastic_check_on_open = 0
+
 " Tagbar settings for Go
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
