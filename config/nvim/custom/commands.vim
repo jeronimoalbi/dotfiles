@@ -19,12 +19,15 @@ inoremap <C-c>pm <C-r><C-p>*
 " Enter visual line mode
 nmap <leader><leader> V
 
+" Go to next tab
+noremap <leader>tt :tabNext<CR>
+
 " Navigate forward/backward in the tags stack
 map <leader>[ <C-T>
 map <leader>] g]
 " Search tag and if many exists display select window
-nmap <silent> <leader>tt :exec("tselect ".expand("<cword>"))<CR>
-inoremap <C-c>tt <Esc>:exec("tselect ".expand("<cword>"))<CR>
+"nmap <silent> <leader>tt :exec("tselect ".expand("<cword>"))<CR>
+"inoremap <C-c>tt <Esc>:exec("tselect ".expand("<cword>"))<CR>
 
 " Mappings to jump to different locations
 " 1. Jump to last jump point
