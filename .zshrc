@@ -41,7 +41,7 @@ bindkey -M vicmd '^S' history-incremental-search-forward
 export LS_COLORS=$LS_COLORS:'*.pyc=0;30'
 export PROJECT_HOME=$HOME/projects
 export GOROOT=/usr/local/go
-export GOPATH=$PROJECT_HOME/golang
+export GOPATH=$PROJECT_HOME/go
 export PATH=$HOME/bin:$GOPATH/bin:$GOROOT/bin:/usr/local/opt/python/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 export PIPENV_VENV_IN_PROJECT=1
 
