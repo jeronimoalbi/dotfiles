@@ -1,1 +1,1 @@
-/home/jero/.config/nvim/plugged/gocode/nvim/autoload/gocomplete.vim
+/Users/jeronimo/.config/nvim/plugged/gocode/nvim/autoload/gocomplete.vim

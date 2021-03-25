@@ -170,3 +170,6 @@ let g:UltiSnipsJumpForwardTrigger="<c-c>k"
 let g:UltiSnipsJumpBackwardTrigger="<c-c>j"
 " Make :UltiSnipsEdit split window
 let g:UltiSnipsEditSplit="vertical"
+
+" Disable Any-jump default key bindings
+let g:any_jump_disable_default_keybindings = 1

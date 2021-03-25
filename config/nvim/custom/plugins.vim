@@ -2,6 +2,7 @@
 Plug 'tonsky/firacode' " Requires manual font installation
 
 " Themes
+Plug 'junegunn/seoul256.vim'
 Plug 'w0ng/vim-hybrid'
 Plug 'freeo/vim-kalisi'
 Plug 'mhartington/oceanic-next'
@@ -24,6 +25,7 @@ Plug 'skywind3000/asyncrun.vim'
 " Development
 Plug 'benekastah/neomake'
 Plug 'sbdchd/neoformat'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'prettier/vim-prettier', {'do': 'npm install', 'for': ['javascript']}
 Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
@@ -32,23 +34,23 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'sgur/ctrlp-extensions.vim'
 Plug 'ivalkeen/vim-ctrlp-tjump'
 Plug 'lokikl/vim-ctrlp-ag'
+Plug 'pechorin/any-jump.vim'
 Plug 'briandoll/change-inside-surroundings.vim'
 Plug 'bitc/vim-bad-whitespace'
 Plug 'mattn/emmet-vim'
 Plug 'honza/vim-snippets'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-surround'
-Plug 'jiangmiao/auto-pairs'
 Plug 'andrewradev/switch.vim'
 Plug 'sukima/xmledit'
 Plug 'fisadev/vim-isort'
 Plug 'Valloric/YouCompleteMe', {'do': './install.py --gocode-completer --ts-completer'}
-Plug 'jodosha/vim-godebug'
 Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
 "Plug 'shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 "Plug 'zchee/deoplete-go', { 'do': 'make'}
 "Plug 'zchee/deoplete-jedi',
 Plug 'Yggdroot/indentLine'
+Plug 'psf/black', { 'branch': 'stable' }
 
 " MacOS
 if system('uname -s') == "Darwin\n"
@@ -58,8 +60,8 @@ endif
 " Syntax
 Plug 'me-vlad/python-syntax.vim'
 Plug 'vim-scripts/doctest-syntax'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'hail2u/vim-css3-syntax'

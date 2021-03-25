@@ -40,8 +40,8 @@ runtime custom/plugins.vim
 call plug#end()
 
 " Set dark background and make line numbers gray to be visible
-set background=light
-silent! colorscheme lucius
+set background=dark
+silent! colorscheme seoul256
 
 " Enable selected line marker after themes was applied
 set cursorline

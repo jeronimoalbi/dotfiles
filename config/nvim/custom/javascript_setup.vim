@@ -11,3 +11,6 @@ set number
 let g:prettier#quickfix_enabled = 1
 let g:prettier#autoformat = 0
 let g:prettier#exec_cmd_async = 1
+
+" Run prettier
+autocmd BufWritePre *.js PrettierAsync

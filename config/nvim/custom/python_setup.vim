@@ -92,3 +92,6 @@ let b:switch_custom_definitions =
 
 " nnoremap - :call switch#Switch(g:variable_style_switch_definitions)<cr>
 nnoremap = :Switch<cr>
+
+" Run black on save
+"autocmd BufWritePre *.py execute ':Black'
