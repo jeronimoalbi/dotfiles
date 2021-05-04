@@ -10,6 +10,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'Lokaltog/vim-distinguished'
 Plug 'jonathanfilip/vim-lucius'
 Plug 'tomasr/molokai'
+Plug 'arcticicestudio/nord-vim'
 
 " Common
 Plug 'scrooloose/nerdtree'

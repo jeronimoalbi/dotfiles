@@ -39,6 +39,9 @@ call plug#begin('~/.config/nvim/plugged')
 runtime custom/plugins.vim
 call plug#end()
 
+" Enables 24-bit RGB color
+set termguicolors
+
 " Set dark background and make line numbers gray to be visible
 set background=dark
 silent! colorscheme seoul256
