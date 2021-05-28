@@ -29,7 +29,7 @@ ZSH_THEME="candy"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git python extract go vi-mode)
+plugins=(git python extract golang vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -38,11 +38,12 @@ bindkey -M isearch '^S' history-incremental-search-forward
 bindkey -M vicmd '^R' history-incremental-search-backward
 bindkey -M vicmd '^S' history-incremental-search-forward
 
+export EDITOR=nvim
 export LS_COLORS=$LS_COLORS:'*.pyc=0;30'
 export PROJECT_HOME=$HOME/projects
 export GOROOT=/usr/local/go
 export GOPATH=$PROJECT_HOME/go
-export PATH=$HOME/bin:$GOPATH/bin:$GOROOT/bin:/usr/local/opt/python/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+export PATH=$HOME/bin:$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:./node_modules/.bin:/usr/local/opt/python/bin:/usr/local/sbin:/usr/local/bin:$PATH
 export PIPENV_VENV_IN_PROJECT=1
 
 # THis fixes the ":CheckHealth" command in neovim to detech the virtualenv without any warnings
@@ -55,10 +56,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Docker daemon host
-export DOCKER_HOST=127.0.0.1:2375
-
 bindkey -v
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+export NODE_OPTIONS=--max_old_space_size=8192
