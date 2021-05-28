@@ -17,10 +17,8 @@ set noswapfile
 " Number of spaces that a pre-existing tab is equal to.
 " For the amount of space used for a new tab use shiftwidth.
 set tabstop=4
-
 " Make backspace use 4 characters
 set softtabstop=4
-
 " What to use for an indent
 set shiftwidth=4
 set expandtab
@@ -31,19 +29,18 @@ map <PageDown> <NOP>
 imap <PageUp> <NOP>
 imap <PageDown> <NOP>
 
-" Don't warn when using a different vim
-let g:go_version_warning = 0
+" Enables 24-bit RGB color
+set termguicolors
 
-" Install plugins
+" Set dark background
+set background=dark
+
+" Install plugins (before setting the color schemes)
 call plug#begin('~/.config/nvim/plugged')
 runtime custom/plugins.vim
 call plug#end()
 
-" Enables 24-bit RGB color
-set termguicolors
-
-" Set dark background and make line numbers gray to be visible
-set background=dark
+" Select the color theme to enable
 silent! colorscheme seoul256
 
 " Enable selected line marker after themes was applied
@@ -54,18 +51,16 @@ autocmd WinLeave * setlocal nocursorline
 " By default load tags from 'tags' files
 set tags=tags
 
-" VimR specific settings
-" if has("gui_vimr")
-" endif
-
+" Setup plugins
 runtime custom/plugins_setup.vim
+" Custom commands
 runtime custom/commands.vim
 
 " Load settings by file
-au BufRead,BufNewFile *.py runtime custom/python_setup.vim
-au BufRead,BufNewFile *.go runtime custom/go_setup.vim
-au BufRead,BufNewFile *.json runtime custom/json_setup.vim
-au BufRead,BufNewFile *.js runtime custom/javascript_setup.vim
-au BufRead,BufNewFile *.jsx runtime custom/javascript_setup.vim
-au BufRead,BufNewFile *.xml runtime custom/html_setup.vim
-au BufRead,BufNewFile *.html runtime custom/html_setup.vim
+au BufRead,BufNewFile *.py runtime custom/autoload/python.vim
+au BufRead,BufNewFile *.go runtime custom/autoload/go.vim
+au BufRead,BufNewFile *.json runtime custom/autoload/json.vim
+au BufRead,BufNewFile *.js runtime custom/autoload/javascript.vim
+au BufRead,BufNewFile *.jsx runtime custom/autoload/javascript.vim
+au BufRead,BufNewFile *.xml runtime custom/autoload/html.vim
+au BufRead,BufNewFile *.html runtime custom/autoload/html.vim

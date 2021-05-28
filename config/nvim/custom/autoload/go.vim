@@ -18,6 +18,9 @@ setlocal completeopt+=noselect
 " Close the preview window after complete
 autocmd CompleteDone * pclose!
 
+" Don't warn when using an unsupported version of vim
+let g:go_version_warning = 0
+
 " Call goimports on save
 let g:go_fmt_command = "goimports"
 

@@ -16,47 +16,18 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'sjl/gundo.vim'
+Plug 'simnalamburt/vim-mundo'
 Plug 'tpope/vim-repeat'
 Plug 'matze/vim-move'
-Plug 'mileszs/ack.vim'
 Plug 'dhruvasagar/vim-zoom'
 Plug 'skywind3000/asyncrun.vim'
-
-" Development
 Plug 'benekastah/neomake'
 Plug 'sbdchd/neoformat'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'prettier/vim-prettier', {'do': 'npm install', 'for': ['javascript']}
-Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
-Plug 'mhinz/vim-signify'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'sgur/ctrlp-extensions.vim'
-Plug 'ivalkeen/vim-ctrlp-tjump'
-Plug 'lokikl/vim-ctrlp-ag'
-Plug 'pechorin/any-jump.vim'
-Plug 'briandoll/change-inside-surroundings.vim'
 Plug 'bitc/vim-bad-whitespace'
-Plug 'mattn/emmet-vim'
-Plug 'honza/vim-snippets'
 Plug 'tomtom/tcomment_vim'
+Plug 'briandoll/change-inside-surroundings.vim'
 Plug 'tpope/vim-surround'
-Plug 'andrewradev/switch.vim'
-Plug 'sukima/xmledit'
-Plug 'fisadev/vim-isort'
-Plug 'Valloric/YouCompleteMe', {'do': './install.py --gocode-completer --ts-completer'}
-Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
-"Plug 'shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"Plug 'zchee/deoplete-go', { 'do': 'make'}
-"Plug 'zchee/deoplete-jedi',
-Plug 'Yggdroot/indentLine'
-Plug 'psf/black', { 'branch': 'stable' }
-
-" MacOS
-if system('uname -s') == "Darwin\n"
-  Plug 'rizzatti/dash.vim'
-endif
 
 " Syntax
 Plug 'me-vlad/python-syntax.vim'
@@ -70,3 +41,26 @@ Plug 'glench/vim-jinja2-syntax'
 Plug 'elzr/vim-json'
 Plug 'ekalinin/dockerfile.vim'
 Plug 'cespare/vim-toml'
+
+" Development
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'sgur/ctrlp-extensions.vim'
+Plug 'ivalkeen/vim-ctrlp-tjump'
+Plug 'lokikl/vim-ctrlp-ag'
+Plug 'pechorin/any-jump.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'mhinz/vim-signify'
+Plug 'mattn/emmet-vim'
+Plug 'honza/vim-snippets'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'Valloric/YouCompleteMe', {'do': './install.py --gocode-completer --ts-completer'}
+Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
+Plug 'prettier/vim-prettier', {'do': 'npm install', 'for': ['javascript']}
+Plug 'Yggdroot/indentLine'
+Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'psf/black', { 'branch': 'stable' }
+
+" MacOS
+if system('uname -s') == "Darwin\n"
+  Plug 'rizzatti/dash.vim'
+endif

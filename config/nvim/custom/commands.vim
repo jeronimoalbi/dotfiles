@@ -2,9 +2,6 @@
 nmap <silent> <leader>ev :e $MYVIMRC<cr>
 nmap <silent> <leader>ep :e ~/.config/nvim/custom/plugins.vim<cr>
 
-" Open my vim cheatsheet
-"nmap <silent> <leader>cs :sp $HOME/.vim/doc/vim_cheatsheet.txt<CR>
-
 " Edit in place of current file
 nmap <leader>e. :e <C-R>=expand("%:p:h") . "/" <CR>
 
@@ -16,18 +13,8 @@ inoremap <C-c>pp <C-r><C-p>+
 noremap <leader>pm :set paste<CR>:put *<CR>:set nopaste<CR>
 inoremap <C-c>pm <C-r><C-p>*
 
-" Enter visual line mode
-nmap <leader><leader> V
-
 " Go to next tab
 noremap <leader>tt :tabNext<CR>
-
-" Navigate forward/backward in the tags stack
-map <leader>[ <C-T>
-map <leader>] g]
-" Search tag and if many exists display select window
-"nmap <silent> <leader>tt :exec("tselect ".expand("<cword>"))<CR>
-"inoremap <C-c>tt <Esc>:exec("tselect ".expand("<cword>"))<CR>
 
 " Mappings to jump to different locations
 " 1. Jump to last jump point
