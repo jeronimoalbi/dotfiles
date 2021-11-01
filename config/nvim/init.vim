@@ -62,5 +62,6 @@ au BufRead,BufNewFile *.go runtime custom/autoload/go.vim
 au BufRead,BufNewFile *.json runtime custom/autoload/json.vim
 au BufRead,BufNewFile *.js runtime custom/autoload/javascript.vim
 au BufRead,BufNewFile *.jsx runtime custom/autoload/javascript.vim
+au BufRead,BufNewFile *.sol runtime custom/autoload/solidity.vim
 au BufRead,BufNewFile *.xml runtime custom/autoload/html.vim
 au BufRead,BufNewFile *.html runtime custom/autoload/html.vim

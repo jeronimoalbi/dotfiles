@@ -35,6 +35,7 @@ Plug 'vim-scripts/doctest-syntax'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'tomlion/vim-solidity'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'glench/vim-jinja2-syntax'
@@ -55,10 +56,11 @@ Plug 'honza/vim-snippets'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'Valloric/YouCompleteMe', {'do': './install.py --gocode-completer --ts-completer'}
 Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
-Plug 'prettier/vim-prettier', {'do': 'npm install', 'for': ['javascript']}
+Plug 'prettier/vim-prettier', {'do': 'npm install', 'for': ['javascript', 'solidity']}
 Plug 'Yggdroot/indentLine'
 Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'psf/black', { 'branch': 'stable' }
+Plug 'dmdque/solidity.vim'
 
 " MacOS
 if system('uname -s') == "Darwin\n"
