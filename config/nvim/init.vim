@@ -23,6 +23,9 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 
+" Change working directory when the selected buffer changes
+set autochdir
+
 " Disable page up and page down
 map <PageUp> <NOP>
 map <PageDown> <NOP>

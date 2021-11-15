@@ -1,0 +1,16 @@
+## Emmet (Zencoding)
+
+- Trigger:    <C-e>,
+- Child:      div>ul>li
+- Sibling:    div+p+bq
+- Multiply:   ul>li*5
+- Text:       a{Click me}
+- Grouping:   div>(header>ul>li*2>a)+footer>p
+- ID:         div#header
+- Class:      div.class1.class2.class3
+- ID+Class:   div#header+div.page+div#footer.class1.class2.class3
+- Attrs:      td[title="Hello world!" colspan=3]
+- Numbering:  https://docs.emmet.io/abbreviations/syntax/#item-numbering
+- Climb up:
+    div+div>p>span+em^bq
+    div+div>p>span+em^^^bq

@@ -58,6 +58,7 @@ let g:move_key_modifier = 'C'
 " Emmet (Zencoding)
 " Trigger by default with: <C-y>,
 "
+let g:user_emmet_expandabbr_key = '<C-e>,'
 let g:user_emmet_install_global = 0
 let g:user_emmet_settings = {
 \ 'javascript' : {
