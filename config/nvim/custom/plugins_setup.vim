@@ -1,50 +1,3 @@
-" Shorcut for NERDTree
-nmap <silent> <leader>nt :NERDTreeFind<cr>
-
-" Shorcuts for Ctrlp
-nmap <silent> <leader>ff :CtrlP<cr>
-nmap <silent> <leader>fm :CtrlPMRU<cr>
-nmap <silent> <leader>fb :CtrlPBuffer<cr>
-nmap <silent> <leader>ft :CtrlPTag<cr>
-
-"
-" Ctrlp Yankring shortcuts
-"
-nmap <silent> <leader>yr :CtrlPYankring<CR>
-
-"
-" Ctrlp settings
-"
-" Display window on top
-let g:ctrlp_match_window_bottom = 0
-" Exclude some files from MRU list
-let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*'
-" Don't search hidden files and dirs
-let g:ctrlp_dotfiles = 0
-" Ignore files independently of wildignore
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg)$',
-  \ 'file': '\v\.vim$',
-  \ }
-" List files in repository or using find by default
-let g:ctrlp_user_command = {
-\ 'types': {
-  \ 1: ['.git/', 'cd %s && git ls-files'],
-  \ },
-\ 'fallback': 'find %s -type f -not -path "*/\.*" -not -path "*/*egg-*"'
-\ }
-" Enable some extensions
-let g:ctrlp_extensions = ['tag']
-" CtrlP Ag settings
-let g:ctrlp_ag_ignores = '--ignore .git
-    \ --ignore .bash_history
-    \ --ignore "*.out"
-    \ --ignore "*.log"
-    \ --ignore "*.vim"
-    \ --ignore "tags"
-    \ --ignore "deps/*"
-    \ --ignore "_build/*"'
-
 " Set the theme for the airline bar plugin
 let g:airline_theme='bubblegum'
 
@@ -94,6 +47,9 @@ let NERDTreeIgnore=['.*\.pyo$', '.*\.pyc$', '\~$', '\.db$', '\.sqlite$', '__pyca
 let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
 " Disable label on top of bookmarks
 let NERDTreeMinimalUI=1
+
+" Shorcut for NERDTree
+nmap <silent> <leader>nt :NERDTreeFind<cr>
 
 " Mundo tree shortcuts
 nnoremap <leader>ut :MundoToggle<CR>
