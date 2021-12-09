@@ -22,6 +22,20 @@ Plug 'arcticicestudio/nord-vim'
 
 -- == Common ==
 --
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug('nvim-telescope/telescope-fzf-native.nvim', {['do'] = 'make'})
+Plug 'fannheyward/telescope-coc.nvim'
+Plug 'cljoly/telescope-repo.nvim' --[[
+    linux -> sudo apt install fd-find
+    mac -> brew install fd
+]]
+Plug 'airblade/vim-rooter' --[[
+    Used by telescope-repo.vim to change to the project directory
+    on file select. This makes AnyJump work when working with
+    multiple projects.
+]]
+Plug 'acksld/nvim-neoclip.lua'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -34,33 +48,29 @@ Plug 'Yggdroot/indentLine'
 Plug 'bitc/vim-bad-whitespace'
 Plug 'tomtom/tcomment_vim'
 Plug 'briandoll/change-inside-surroundings.vim'
-Plug 'nvim-lua/plenary.nvim'
+Plug 'neovim/nvim-lspconfig' --[[
+    CocList extensions -> Manage installed extensions
+    CocUpdate -> Update extensions
 
--- == LSP ==
---
--- CocList extensions -> Manage installed extensions
--- CocUpdate -> Update extensions
---
--- Go:
---   CocInstall coc-go
--- Python:
---   pip install -U jedi-language-server
---   CocInstall coc-jedi
--- Emmet:
---   CocInstall coc-emmet
--- Javascript:
---   CocInstall coc-json coc-tsserver coc-eslint coc-prettier coc-css
---   CocInstall coc-flow
---   CocInstall coc-graphql
---   CocInstall coc-tailwindcss
--- YAML:
---   CocInstall coc-yaml
--- Swagger:
---   CocInstall coc-swagger
--- SQL:
---   CocInstall coc-sql
---
-Plug 'neovim/nvim-lspconfig'
+    Go:
+      CocInstall coc-go
+    Python:
+      pip install -U jedi-language-server
+      CocInstall coc-jedi
+    Emmet:
+      CocInstall coc-emmet
+    Javascript:
+      CocInstall coc-json coc-tsserver coc-eslint coc-prettier coc-css
+      CocInstall coc-flow
+      CocInstall coc-graphql
+      CocInstall coc-tailwindcss
+    YAML:
+      CocInstall coc-yaml
+    Swagger:
+      CocInstall coc-swagger
+    SQL:
+      CocInstall coc-sql
+]]
 Plug('neoclide/coc.nvim', {branch = 'release'})
 
 -- == Syntax ==
@@ -72,10 +82,6 @@ Plug 'tomlion/vim-solidity'
 
 -- == Development ==
 --
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'sgur/ctrlp-extensions.vim'
-Plug 'ivalkeen/vim-ctrlp-tjump'
-Plug 'lokikl/vim-ctrlp-ag'
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
 Plug 'editorconfig/editorconfig-vim'
@@ -83,11 +89,10 @@ Plug('fatih/vim-go', {['do'] = ':GoInstallBinaries'})
 Plug('prettier/vim-prettier', {['do'] = 'npm install', ['for'] = {'javascript', 'solidity'}})
 Plug 'dmdque/solidity.vim'
 
--- == AnyJump ==
---    macos -> brew install ripgrep
---    linux -> sudo apt-get install ripgrep
---
-Plug 'pechorin/any-jump.vim'
+Plug 'pechorin/any-jump.vim' --[[
+    macos -> brew install ripgrep
+    linux -> sudo apt-get install ripgrep
+]]
 
 -- == MacOS ==
 --
