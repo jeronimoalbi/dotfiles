@@ -5,6 +5,9 @@ nmap <silent> <leader>ep :e ~/.config/nvim/custom/plugins.vim<cr>
 " Edit in place of current file
 nmap <leader>e. :e <C-R>=expand("%:p:h") . "/" <CR>
 
+" Paste after the current line into the next line
+nmap P :pu<cr>
+
 " Paste clipboard content without formatting
 noremap <leader>pp :set paste<CR>:put +<CR>:set nopaste<CR>
 inoremap <C-c>pp <C-r><C-p>+
@@ -15,16 +18,6 @@ inoremap <C-c>pm <C-r><C-p>*
 
 " Go to next tab
 noremap <leader>tt :tabNext<CR>
-
-" Mappings to jump to different locations
-" 1. Jump to last jump point
-map <C-a>l ``
-" 2. Jump to last changed line
-map <C-a>c `.
-" 3. Jump to previous jump point in stack
-map <C-a>h <C-o>
-" 4. Jump to next jump point in stack
-map <C-a>l <Tab>
 
 " Disable search highlight by pressing ,/
 nmap <silent> <leader>- :nohlsearch<CR>
