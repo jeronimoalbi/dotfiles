@@ -6,7 +6,8 @@ let g:python3_host_prog = 'python3'
 " Use comma as shortcut prefix
 let mapleader = ","
 
-" Allow vim to switch buffers when when current buffer is not saved
+" Allow vim to switch buffers when when current buffer
+" is not saved.
 set hidden
 
 " Turn backup files off
@@ -23,9 +24,6 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 
-" Change working directory when the selected buffer changes
-set autochdir
-
 " Disable page up and page down
 map <PageUp> <NOP>
 map <PageDown> <NOP>
@@ -38,12 +36,13 @@ set termguicolors
 " Set dark background
 set background=dark
 
-" Install plugins (before setting the color schemes)
+" Install plugins
 call plug#begin('~/.config/nvim/plugged')
 runtime custom/plugins.vim
 call plug#end()
 
-" Select the color theme to enable
+" Select the color theme to enable.
+" NOTE: Plugins must be loaded before.
 silent! colorscheme seoul256
 
 " Enable selected line marker after themes was applied
@@ -59,7 +58,7 @@ runtime custom/plugins_setup.vim
 " Custom commands
 runtime custom/commands.vim
 
-" Load settings by file
+" Load settings by file type
 au BufRead,BufNewFile *.py runtime custom/autoload/python.vim
 au BufRead,BufNewFile *.go runtime custom/autoload/go.vim
 au BufRead,BufNewFile *.json runtime custom/autoload/json.vim

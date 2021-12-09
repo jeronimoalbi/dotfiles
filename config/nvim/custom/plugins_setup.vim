@@ -95,21 +95,6 @@ let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
 " Disable label on top of bookmarks
 let NERDTreeMinimalUI=1
 
-"
-" Neomake
-"
-let g:neomake_python_pylint_args = [
-    \ '-f', 'text',
-    \ '--msg-template="{path}:{line}:{column}:{C}: [{symbol}] {msg}"',
-    \ '-d', 'E1101,C0111,R0901',
-    \ '-r', 'n'
-    \ ]
-let g:neomake_javascript_enabled_makers = ['eslint']
-
-" Use simple check on save
-autocmd BufWritePost *.py :Neomake flake8
-autocmd BufWritePost *.js,*.jsx :Neomake eslint
-
 " Mundo tree shortcuts
 nnoremap <leader>ut :MundoToggle<CR>
 
@@ -118,10 +103,12 @@ let g:any_jump_disable_default_keybindings = 1
 " Auto group results by filename
 let g:any_jump_grouping_enabled = 1
 " Search references only for current file type
-let g:any_jump_references_only_for_current_filetype = 0
+let g:any_jump_references_only_for_current_filetype = 1
 " Search in untracked VCS files too
 let g:any_jump_disable_vcs_ignore = 1
+" Make sure Ripgrep is used by default to search reference
+let g:any_jump_search_prefered_engine = 'rg'
 
 " Any-Jump shortcuts
-nnoremap <leader>jd :AnyJump<CR>
 nnoremap <leader><leader> :AnyJump<CR>
+nnoremap <leader>. :AnyJumpBack<CR>
