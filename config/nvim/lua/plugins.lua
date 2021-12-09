@@ -26,6 +26,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug('nvim-telescope/telescope-fzf-native.nvim', {['do'] = 'make'})
 Plug 'fannheyward/telescope-coc.nvim'
+Plug 'nvim-telescope/telescope-frecency.nvim'
 Plug 'cljoly/telescope-repo.nvim' --[[
     linux -> sudo apt install fd-find
     mac -> brew install fd
@@ -34,6 +35,9 @@ Plug 'airblade/vim-rooter' --[[
     Used by telescope-repo.vim to change to the project directory
     on file select. This makes AnyJump work when working with
     multiple projects.
+]]
+Plug 'tami5/sqlite.lua' --[[
+    Required by different plugins to keep state
 ]]
 Plug 'acksld/nvim-neoclip.lua'
 Plug 'scrooloose/nerdtree'

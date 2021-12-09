@@ -24,16 +24,7 @@ vim.opt.background = "dark"
 
 -- Install plugins
 require('plugins')
-
--- Enable telescope plugins
-if package.loaded['telescope'] then
-    require('telescope').load_extension('fzf')
-    require('telescope').load_extension('repo')
-    require('telescope').load_extension('coc')
-    require('telescope').load_extension('neoclip')
-
-    require('neoclip').setup()
-end
+require('plugins_setup')
 
 -- Select the color theme to enable.
 -- NOTE: Plugins must be loaded before.
