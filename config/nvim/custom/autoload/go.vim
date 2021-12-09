@@ -18,6 +18,9 @@ setlocal completeopt+=noselect
 " Close the preview window after complete
 autocmd CompleteDone * pclose!
 
+" Disable vim-go key mappings
+let g:go_def_mapping_enabled = 0
+
 " Don't warn when using an unsupported version of vim
 let g:go_version_warning = 0
 
@@ -31,32 +34,10 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
-" 'You complete me' plugin options
-let g:ycm_auto_trigger=1
-let g:ycm_complete_in_strings = 0
-let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<Enter>']
-let g:ycm_key_list_stop_completion = ['<C-y>']
-let g:ycm_key_invoke_completion = '<C-Space>'
-let g:ycm_goto_buffer_command = 'same-buffer'
-" let g:ycm_add_preview_to_completeopt = 0
-" let g:ycm_autoclose_preview_window_after_completion = 1
-" let g:ycm_autoclose_preview_window_after_insertion = 1
-
-" Map keys to go to definition using a completer
-map <C-l> <esc>:YcmCompleter GoTo<cr>
-map <C-h> <C-o>
-imap <C-l> <esc>:YcmCompleter GoTo<cr>
-imap <C-h> <C-o>
-
 let g:go_gopls_enabled = 1
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
-
-" Disable syntastic for go because vim-go is used
-" let g:syntastic_go_checkers  =['go', 'golint', 'govet', 'errcheck']
-let g:syntastic_go_checkers = []
-let g:syntastic_check_on_open = 0
 
 " Tagbar settings for Go
 let g:tagbar_type_go = {
@@ -86,3 +67,7 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
+
+" Vim GO: Go to definition and back
+nnoremap <buffer> <silent> gd :GoDef<cr>
+nnoremap <buffer> <silent> gb :GoDefPop<cr>
