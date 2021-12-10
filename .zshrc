@@ -32,7 +32,7 @@ export EDITOR=nvim
 export LS_COLORS=$LS_COLORS:'*.pyc=0;30'
 export PROJECT_HOME=$HOME/Projects
 export GOROOT=/usr/local/go
-export GOPATH=$PROJECT_HOME/go
+export GOPATH=$HOME/go
 export PATH=$HOME/.local/bin:/usr/local/opt/python/bin:/usr/local/sbin:/usr/local/bin:$PATH
 export PATH=$HOME/bin:$GOPATH/bin:$GOROOT/bin:./node_modules/.bin:$PATH
 
