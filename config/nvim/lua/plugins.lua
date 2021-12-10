@@ -90,7 +90,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
 Plug 'editorconfig/editorconfig-vim'
 Plug('fatih/vim-go', {['do'] = ':GoInstallBinaries'})
-Plug('prettier/vim-prettier', {['do'] = 'npm install', ['for'] = {'javascript', 'solidity'}})
+Plug('prettier/vim-prettier', {
+    ['do'] = 'npm install',
+    ['for'] = {'javascript', 'solidity', 'json', 'typescript', 'css', 'graphql'},
+})
 Plug 'dmdque/solidity.vim'
 
 Plug 'pechorin/any-jump.vim' --[[
