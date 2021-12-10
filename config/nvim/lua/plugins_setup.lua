@@ -9,6 +9,62 @@ if package.loaded['telescope'] then
     require('neoclip').setup()
 end
 
+-- Telescope shortcuts
+vim.api.nvim_set_keymap( -- Find within the project files
+    'n',
+    '<Leader>ff',
+    "<CMD>lua require('telescope.builtin').find_files()<CR>",
+    {noremap = true, silent = true}
+)
+vim.api.nvim_set_keymap( -- Search buffers
+    'n',
+    '<Leader>fb',
+    "<CMD>lua require('telescope.builtin').buffers()<CR>",
+    {noremap = true, silent = true}
+)
+vim.api.nvim_set_keymap( -- Open the files browser
+    'n',
+    '<Leader>fo',
+    "<CMD>lua require('telescope.builtin').file_browser()<CR>",
+    {noremap = true, silent = true}
+)
+vim.api.nvim_set_keymap( -- Open the list of MRU files
+    'n',
+    '<leader>fm',
+    "<Cmd>lua require('telescope').extensions.frecency.frecency()<CR>",
+    {noremap = true, silent = true}
+)
+vim.api.nvim_set_keymap( -- Open Git commits log
+    'n',
+    '<leader>gl',
+    "<Cmd>lua require('telescope.builtin').git_commits()<CR>",
+    {noremap = true, silent = true}
+)
+vim.api.nvim_set_keymap( -- List Git branches
+    'n',
+    '<leader>gb',
+    "<Cmd>lua require('telescope.builtin').git_branches()<CR>",
+    {noremap = true, silent = true}
+)
+
+vim.api.nvim_set_keymap( -- List Git changed files
+    'n',
+    '<leader>gs',
+    "<Cmd>lua require('telescope.builtin').git_status()<CR>",
+    {noremap = true, silent = true}
+)
+
+-- Configure treesiter features when nvim-treesitter is installed
+local ok, treesitter = pcall(require, 'nvim-treesitter.configs')
+if ok then
+    treesitter.setup({
+        highlight = {
+            enable = true,
+            additional_vim_regex_highlighting = false,
+        },
+    })
+end
+
 -- Set the theme for the airline bar plugin
 vim.g.airline_theme = 'bubblegum'
 
@@ -42,13 +98,12 @@ vim.g.tagbar_autofocus = 1
 vim.g.tagbar_sort = 0
 
 -- Shorter commands to toggle tagbar display
-vim.api.nvim_set_keymap(
+vim.api.nvim_set_keymap( -- Toggle the tags window
     'n',
     '<Leader>tl',
     ':TagbarToggle<CR>',
     {noremap = true, silent = true}
 )
-
 
 -- NERDTree
 --
@@ -61,7 +116,7 @@ vim.g.NERDTreeSortOrder = {"^__\\.py$", "\\/$", "*", "\\.swp$", "\\.bak$", "\\~$
 vim.g.NERDTreeMinimalUI = 1
 
 -- Mundo tree shortcuts
-vim.api.nvim_set_keymap(
+vim.api.nvim_set_keymap( -- Open the undo tree window
     'n',
     '<leader>ut',
     ':MundoToggle<CR>',
@@ -80,23 +135,15 @@ vim.g.any_jump_disable_vcs_ignore = 1
 vim.g.any_jump_search_prefered_engine = 'rg'
 
 -- Any-Jump shortcuts
-vim.api.nvim_set_keymap(
+vim.api.nvim_set_keymap( -- Open the symbol references/definition window
     'n',
     '<leader><leader>',
     ':AnyJump<CR>',
     {noremap = true, silent = true}
 )
-vim.api.nvim_set_keymap(
+vim.api.nvim_set_keymap( -- Go back to the pre-jump symbol buffer
     'n',
     '<leader>.',
     ':AnyJumpBack<CR>',
-    {noremap = true, silent = true}
-)
-
--- Display Telescope frecency (MRU)
-vim.api.nvim_set_keymap(
-    'n',
-    '<leader>fm',
-    "<Cmd>lua require('telescope').extensions.frecency.frecency()<CR>",
     {noremap = true, silent = true}
 )

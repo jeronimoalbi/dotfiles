@@ -23,6 +23,10 @@ Plug 'arcticicestudio/nord-vim'
 -- == Common ==
 --
 Plug 'nvim-lua/plenary.nvim'
+Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'}) --[[
+    Requires:
+        :TSInstall go python typescript javascript json
+]]
 Plug 'nvim-telescope/telescope.nvim'
 Plug('nvim-telescope/telescope-fzf-native.nvim', {['do'] = 'make'})
 Plug 'fannheyward/telescope-coc.nvim'
