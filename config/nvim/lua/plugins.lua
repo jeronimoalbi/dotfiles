@@ -4,9 +4,15 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
 
 -- == Fonts ==
 --
--- Requires manual font installation
---
-Plug 'tonsky/firacode'
+Plug 'tonsky/firacode' --[[
+    Requires manual font installation.
+
+    MacOS:
+        brew tap homebrew/cask-fonts
+        brew install --cask font-fira-code
+    Linux:
+        sudo apt install fonts-firacode
+]]
 
 -- == Themes ==
 --
