@@ -55,7 +55,17 @@ export NODE_OPTIONS=--max_old_space_size=8192
 
 bindkey -v
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+if [ -e "${HOME}/.iterm2_shell_integration.zsh" ]; then
+  source "${HOME}/.iterm2_shell_integration.zsh"
+fi
+
+# MacOS brew installed python paths
+BREW_PYTHON_VERSION=3.10
+BREW_PYTHON="/usr/local/opt/python@$BREW_PYTHON_VERSION"
+if [ -e ${BREW_PYTHON} ]; then
+  export PATH=$BREW_PYTHON/Frameworks/Python.framework/Versions/$BREW_PYTHON_VERSION/bin:$PATH
+  export PATH=$BREW_PYTHON/bin:$PATH
+fi
 
 # Tilix gnome terminal emulator
 #
