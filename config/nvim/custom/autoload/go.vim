@@ -67,7 +67,3 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
-
-" Vim GO: Go to definition and back
-nnoremap <buffer> <silent> gd :GoDef<cr>
-nnoremap <buffer> <silent> gb :GoDefPop<cr>
