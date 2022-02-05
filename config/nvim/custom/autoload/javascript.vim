@@ -13,7 +13,7 @@ let g:prettier#autoformat = 0
 let g:prettier#exec_cmd_async = 1
 
 " Run prettier
-autocmd BufWritePre *.js PrettierAsync
+"autocmd BufWritePre *.js PrettierAsync
 
 " Search references also in other file types.
 " This is useful for js, jsx, ts and tsx jumps.
