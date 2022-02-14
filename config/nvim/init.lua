@@ -26,6 +26,11 @@ vim.opt.background = "dark"
 require('plugins')
 require('plugins_setup')
 
+-- How dark or light the seoul them should be
+-- Dark: 233 (darkest) ~ 239 (lightest)
+-- Light: 252 (darkest) ~ 256 (lightest)
+vim.g.seoul256_background = 233
+
 -- Select the color theme to enable.
 -- NOTE: Plugins must be loaded before.
 vim.cmd [[ colorscheme seoul256 ]]
