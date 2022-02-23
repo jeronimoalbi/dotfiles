@@ -69,14 +69,14 @@ let g:tagbar_type_go = {
 \ }
 
 " Show function signature
-nmap <leader>gs  <Plug>(go-info)
+nmap gs  <Plug>(go-info)
 
 " Go to definition and back
-nmap <leader>gd <Plug>(coc-definition)
-nmap <leader>gg <C-o>
+nmap gd <Plug>(coc-definition)
+nmap gg <C-o>
 
 " Show implemented interfaces
-nmap <leader>gi <Plug>(go-implements)
+nmap gi <Plug>(go-implements)
 
 " Rename/refactor symbol under cursor
-nmap <leader>gr <Plug>(coc-rename)
+nmap gr <Plug>(coc-rename)
