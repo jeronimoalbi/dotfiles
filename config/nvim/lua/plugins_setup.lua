@@ -54,6 +54,14 @@ vim.api.nvim_set_keymap( -- List Git changed files
     {noremap = true, silent = true}
 )
 
+-- COC shortcuts
+vim.api.nvim_set_keymap( -- Open the function documentation popup
+    'n',
+    'gh',
+    ":call CocAction('doHover')<CR>",
+    {noremap = true, silent = true}
+)
+
 -- Configure treesiter features when nvim-treesitter is installed
 local ok, treesitter = pcall(require, 'nvim-treesitter.configs')
 if ok then

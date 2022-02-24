@@ -75,9 +75,9 @@ Plug 'neovim/nvim-lspconfig' --[[
       CocInstall coc-emmet
     Javascript:
       CocInstall coc-json coc-tsserver coc-eslint coc-prettier coc-css
-      CocInstall coc-flow
       CocInstall coc-graphql
       CocInstall coc-tailwindcss
+      CocInstall coc-cssmodules
     YAML:
       CocInstall coc-yaml
     Swagger:

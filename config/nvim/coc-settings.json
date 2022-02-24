@@ -1,10 +1,9 @@
 {
+  "typescript.autoClosingTags": false,
+  "typescript.showUnused": false,
+
   // Require .prettierrc
   "prettier.requireConfig": true,
-
-  // Tslint on save
-  "tslint.enable": true,
-  "tslint.autoFixOnSave": true,
 
   // Run prettier (and others)
   "coc.preferences.formatOnSaveFiletypes": [
@@ -13,14 +12,5 @@
     "javascriptreact",
     "typescript",
     "typescriptreact"
-  ],
-
-  // Language server settings
-  "languageserver": {
-    "go": {
-      "command": "gopls",
-      "rootPatterns": ["go.mod", ".vim/", ".git/"],
-      "filetypes": ["go"]
-    }
-  }
+  ]
 }
