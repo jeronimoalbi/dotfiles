@@ -73,7 +73,7 @@ nmap gs  <Plug>(go-info)
 
 " Go to definition and back
 nmap gd <Plug>(coc-definition)
-nmap gg <C-o>
+nmap gb <C-o>
 
 " Show implemented interfaces
 nmap gi <Plug>(go-implements)
