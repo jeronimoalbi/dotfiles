@@ -61,6 +61,13 @@ vim.api.nvim_set_keymap( -- Open the function documentation popup
     ":call CocAction('doHover')<CR>",
     {noremap = true, silent = true}
 )
+vim.api.nvim_set_keymap( -- Find symbols in workspace
+    'n',
+    '<leader>fs',
+    "<Cmd>Telescope coc workspace_symbols<CR>",
+    {noremap = true, silent = true}
+)
+
 
 -- Configure treesiter features when nvim-treesitter is installed
 local ok, treesitter = pcall(require, 'nvim-treesitter.configs')
