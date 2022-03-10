@@ -46,5 +46,14 @@ ab rpdb from remote_pdb import RemotePdb; RemotePdb(host='0.0.0.0', port=4444).s
 " Also insert debugger with a faster shortcut
 inoremap <C-s>d import ipdb;ipdb.set_trace()
 
+let b:coc_root_patterns = ['.git', '.venv', '.env', 'manage.py']
+
+" Vim Coc: Go to definition and back
+nmap <buffer> <silent> gd <plug>(coc-definition)
+nmap <buffer> <silent> gb <C-O>
+nmap <buffer> <silent> gy <Plug>(coc-type-definition)
+nmap <buffer> <silent> gi <Plug>(coc-implementation)
+nmap <buffer> <silent> gr <Plug>(coc-references)
+
 " Run black on save
 "autocmd BufWritePre *.py execute ':Black'

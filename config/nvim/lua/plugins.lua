@@ -70,7 +70,7 @@ Plug 'neovim/nvim-lspconfig' --[[
       CocInstall coc-go
     Python:
       pip install -U jedi-language-server
-      CocInstall coc-jedi
+      CocInstall coc-jedi coc-diagnostic
     Emmet:
       CocInstall coc-emmet
     Javascript:
