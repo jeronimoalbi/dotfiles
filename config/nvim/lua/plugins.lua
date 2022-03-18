@@ -68,6 +68,8 @@ Plug 'neovim/nvim-lspconfig' --[[
 
     Go:
       CocInstall coc-go
+    Protobuf:
+      CoCInstall coc-protobuf
     Python:
       pip install -U jedi-language-server
       CocInstall coc-jedi coc-diagnostic
