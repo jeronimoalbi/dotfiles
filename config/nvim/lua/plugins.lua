@@ -93,6 +93,7 @@ Plug 'yuezk/vim-js'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'tomlion/vim-solidity'
+Plug 'wfxr/protobuf.vim'
 
 -- == Development ==
 --
