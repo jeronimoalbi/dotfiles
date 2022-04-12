@@ -25,7 +25,8 @@ let g:go_def_mapping_enabled = 0
 let g:go_version_warning = 0
 
 " Call goimports on save
-let g:go_fmt_command = "goimports"
+let g:go_fmt_command = "gopls"
+let g:go_imports_mode = "gopls"
 
 " Turn highlighting on
 let g:go_highlight_functions = 1
