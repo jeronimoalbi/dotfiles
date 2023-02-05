@@ -2,5 +2,6 @@ Session.vim
 tags
 virtualenv
 venv
+.DS_Store
 *.cache
 *.swp
