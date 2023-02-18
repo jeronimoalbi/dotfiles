@@ -1,6 +1,7 @@
 -- Custom plugins installation and setup
 return function(use)
   use("haya14busa/is.vim")
+  use("HerringtonDarkholme/yats.vim")
 
   use({
     "rcarriga/nvim-notify",
@@ -69,7 +70,7 @@ return function(use)
           }),
           -- Linters
           null_ls.builtins.diagnostics.golangci_lint,
-          null_ls.builtins.diagnostics.eslint.with({
+          null_ls.builtins.diagnostics.eslint_d.with({
             filetypes = { "typescript", "typescriptreact", "css", "scss" },
           }),
         },
