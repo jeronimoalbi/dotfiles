@@ -65,6 +65,15 @@ vim.keymap.set("n", "<leader>o", "<cmd>Neotree focus<cr>", {
 })
 
 -- Custom LSP settings
+require("lspconfig").yamlls.setup({
+  settings = {
+    yaml = {
+      schemas = {
+        kubernetes = "k8*/**/*.yaml"
+      },
+    },
+  },
+})
 -- require("lspconfig").tsserver.setup({
 --   on_attach = function(client)
 --     client.server_capabilities["documentFormattingProvider"] = false
