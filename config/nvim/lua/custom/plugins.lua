@@ -13,6 +13,9 @@ return function(use)
     end,
   })
 
+  -- To install a patched nerd font in macOS:
+  --   brew tap homebrew/cask-fonts
+  --   brew install --cask font-fira-code-nerd-font
   use({
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",
