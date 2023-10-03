@@ -104,6 +104,7 @@ local plugins = {
   },
   { "HerringtonDarkholme/yats.vim", ft = "typescript" },
   { "navarasu/onedark.nvim" },
+  { "simrat39/symbols-outline.nvim" },
 }
 
 -- Plugin manager options

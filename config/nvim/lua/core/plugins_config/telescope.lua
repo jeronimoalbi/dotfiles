@@ -34,15 +34,15 @@ vim.keymap.set("n", "<leader>f", builtin.live_grep, {
   noremap = true,
   silent = true,
 })
-vim.keymap.set("n", "<leader>s", builtin.lsp_dynamic_workspace_symbols, {
-  desc = "Search Workspace Symbols",
-  noremap = true,
-  silent = true,
-})
 vim.keymap.set("n", "<leader>x", builtin.lsp_document_symbols, {
   desc = "List Document Symbols",
   noremap = true,
   silent = true,
 })
+-- vim.keymap.set("n", "<leader>s", builtin.lsp_dynamic_workspace_symbols, {
+--   desc = "Search Workspace Symbols",
+--   noremap = true,
+--   silent = true,
+-- })
 
 vim.keymap.set("n", "<leader>u", ":Telescope undo<CR>", { silent = true })
