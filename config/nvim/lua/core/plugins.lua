@@ -17,6 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
   { "rcarriga/nvim-notify", lazy = false },
   { "ellisonleao/gruvbox.nvim", priority = 1000, config = false },
+  { "rebelot/kanagawa.nvim" },
   { "nvim-tree/nvim-web-devicons", lazy = true },
   {
     "nvim-neo-tree/neo-tree.nvim",
