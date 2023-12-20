@@ -54,6 +54,7 @@ lspconfig.tsserver.setup({
   on_attach = on_attach,
 })
 
+
 lspconfig.lua_ls.setup({
   settings = {
     Lua = {
@@ -96,11 +97,15 @@ rust_tools.setup({
         },
       },
     },
-    -- on_attach = function(_, bufnr)
-    --   -- Hover actions
-    --   vim.keymap.set("n", "<C-space>", rust_tools.hover_actions.hover_actions, { buffer = bufnr })
-    --   -- Code action groups
-    --   vim.keymap.set("n", "<Leader>a", rust_tools.code_action_group.code_action_group, { buffer = bufnr })
-    -- end,
+  },
+  tools = {
+    runnables = {
+      use_telescope = true
+    },
+    inlay_hints = {
+      auto = true,
+      only_current_line = true,
+      show_parameter_hints = true,
+    },
   },
 })

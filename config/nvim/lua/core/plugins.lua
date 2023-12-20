@@ -73,7 +73,10 @@ local plugins = {
   {
     "simrat39/rust-tools.nvim",
     ft = "rust",
-    dependencies = { "neovim/nvim-lspconfig" },
+    dependencies = {
+      { "neovim/nvim-lspconfig" },
+      { "hrsh7th/nvim-cmp" },
+    },
   },
   {
     'saecki/crates.nvim',
