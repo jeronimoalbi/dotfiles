@@ -1,4 +1,5 @@
 require("core.options")
+require("core.options_gno")
 require("core.plugins")
 require("core.plugins_config")
 require("core.keymaps")

@@ -41,13 +41,59 @@ lspconfig.gopls.setup({
   capabilities = capabilities,
   on_attach = on_attach,
   filetypes = { "go", "gomod", "gowork", "gotmpl" },
-  root_dir = util.root_pattern("go.work", "go.mode", ".git"),
+  root_dir = util.root_pattern("go.work", "go.mod", ".git"),
   settings = {
     gopls = {
       usePlaceholders = true,
     },
   },
 })
+
+-- -- NOTE: Don't uncomment
+-- -- Leaving this one just in case is useful
+-- vim.tbl_deep_extend('keep', lspconfig, {
+-- 	gnopls = {
+-- 		name = 'gnopls',
+--              filetypes = { "gno", "gnomod" },
+-- 		cmd = { "gnopls", "serve", "--gnoroot", vim.fn.expand('$HOME/Projects/gnolang/gno') },
+-- 	}
+-- })
+
+-- NOTE: Configure gnopls (no need to run vim.lsp.start with these settings)
+-- require('lspconfig.configs').gnopls = {
+--   default_config = {
+--     name = 'gnopls',
+--     filetypes = { "gno", "gnomod" },
+--     cmd = { "gnopls", "serve", "--gnoroot", vim.fn.expand('$HOME/Projects/gnolang/gno') },
+--     settings = {},
+--   };
+-- }
+-- lspconfig.gnopls.setup({
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+--   filetypes = { "gno", "gnomod" },
+--   root_dir = util.root_pattern("gno.mod"),
+-- })
+
+-- NOTE: The gnols dies on initialize
+-- -- vim.lsp.set_log_level('debug')
+-- require('lspconfig.configs').gnols = {
+--   default_config = {
+-- 		name = 'gnols',
+--     filetypes = { "gno", "gnomod" },
+-- 		cmd = { "gnols" },
+--     settings = {
+--       root = vim.fn.expand('$HOME/Projects/gnolang/gno'),
+--     },
+--   };
+-- }
+-- lspconfig.gnols.setup({
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+--   filetypes = { "gno", "gnomod" },
+--   root_dir = util.root_pattern("gno.mod"),
+--   -- root_dir = vim.fn.expand('$HOME/Projects/gnolang/gno'),
+-- })
 
 lspconfig.tsserver.setup({
   capabilities = capabilities,

@@ -38,11 +38,3 @@ vim.o.smartcase = true
 vim.o.completeopt = 'menuone,noselect'
 
 vim.cmd([[ set noswapfile ]])
-
--- Enable Gno syntax and formatting
-vim.api.nvim_create_augroup("gno", { clear = true })
-vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
-  group = "gno",
-  pattern = "*.gno",
-  command = "set filetype=go",
-})

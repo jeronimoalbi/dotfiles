@@ -16,6 +16,8 @@ vim.opt.rtp:prepend(lazypath)
 -- List of installed plugins
 local plugins = {
   { "rcarriga/nvim-notify", lazy = false },
+  { "folke/zen-mode.nvim", opts = { } },
+  { "folke/twilight.nvim", opts = { } },
   { "ellisonleao/gruvbox.nvim", priority = 1000, config = false },
   { "rebelot/kanagawa.nvim" },
   { "nvim-tree/nvim-web-devicons", lazy = true },
@@ -106,9 +108,49 @@ local plugins = {
       require('Comment').setup()
     end,
   },
+  {
+    "epwalsh/obsidian.nvim",
+    version = "*",
+    lazy = true,
+    event = {
+      "BufReadPre " .. vim.fn.expand "~" .. "Documents/Obsidian/**.md",
+      "BufNewFile " .. vim.fn.expand "~" .. "Documents/Obsidian/**.md",
+    },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "hrsh7th/nvim-cmp",
+      "nvim-telescope/telescope.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    opts = {
+      -- Either 'wiki' or 'markdown'
+      preferred_link_style = "wiki",
+
+      workspaces = {
+        {
+          name = "work",
+          path = "~/Documents/Obsidian/Notes",
+        },
+      },
+      picker = {
+        name = "telescope.nvim",
+        mappings = {
+          -- Create a new note from your query.
+          new = "<C-x>",
+          -- Insert a link to the selected note.
+          insert_link = "<C-l>",
+        },
+      },
+    },
+  },
+  {
+    "preservim/vim-markdown",
+    dependencies = { 'godlygeek/tabular' },
+  },
   { "HerringtonDarkholme/yats.vim", ft = "typescript" },
   { "navarasu/onedark.nvim" },
   { "simrat39/symbols-outline.nvim" },
+  { "geseq/tengo-vim" },
 }
 
 -- Plugin manager options
