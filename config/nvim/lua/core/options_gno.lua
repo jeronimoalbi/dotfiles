@@ -31,9 +31,9 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   callback = function(args)
     -- Format code and refresh the buffer
     vim.system({ "gofumpt", "-w", args.file }, nil, function (o)
-      -- if o.code == 0 then
-      --   vim.cmd.checktime(args.buf)
-      -- end
+      if o.code == 0 then
+        vim.cmd.checktime(args.buf)
+      end
     end)
 
     -- Run the Gno linter
