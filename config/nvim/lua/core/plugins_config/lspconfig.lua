@@ -130,6 +130,20 @@ lspconfig.yamlls.setup({
   capabilities = capabilities,
 })
 
+-- lspconfig.rust_analyzer.setup({
+--   on_attach = function (_, bufnr)
+--     vim.api.nvim_create_augroup("rust-analyzer", { clear = true })
+--     vim.api.nvim_clear_autocmds({ group = "rust-analyzer", buffer = bufnr })
+--     vim.api.nvim_create_autocmd("BufWritePre", {
+--       group = "rust-analyzer",
+--       buffer = bufnr,
+--       callback = function()
+--         vim.lsp.buf.format({ bufnr = bufnr })
+--       end,
+--     })
+--   end
+-- })
+
 -- Use rust-tools to handle Rust LSP configuration
 local rust_tools = require("rust-tools")
 rust_tools.setup({

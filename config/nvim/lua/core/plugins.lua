@@ -69,8 +69,12 @@ local plugins = {
     },
   },
   {
-    "jose-elias-alvarez/null-ls.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    "nvimtools/none-ls.nvim",
+    dependencies = {
+      { "nvimtools/none-ls-extras.nvim" },
+      { "nvim-lua/plenary.nvim" },
+      { "neovim/nvim-lspconfig" },
+    },
   },
   {
     "simrat39/rust-tools.nvim",

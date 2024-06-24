@@ -9,7 +9,7 @@ null_ls.setup({
     -- Formatters
     null_ls.builtins.formatting.goimports,
     null_ls.builtins.formatting.gofumpt,
-    null_ls.builtins.formatting.rustfmt.with({
+    require("none-ls.formatting.rustfmt").with({
         extra_args = function(params)
             local Path = require("plenary.path")
             local cargo_toml = Path:new(params.root .. "/" .. "Cargo.toml")
@@ -31,7 +31,7 @@ null_ls.setup({
     }),
     -- Linters
     null_ls.builtins.diagnostics.golangci_lint,
-    null_ls.builtins.diagnostics.eslint_d.with({
+    require("none-ls.diagnostics.eslint").with({
       filetypes = { "typescript", "typescriptreact", "css", "scss" },
     }),
   },
