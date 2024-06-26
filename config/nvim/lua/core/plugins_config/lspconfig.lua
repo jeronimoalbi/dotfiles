@@ -49,57 +49,41 @@ lspconfig.gopls.setup({
   },
 })
 
--- -- NOTE: Don't uncomment
--- -- Leaving this one just in case is useful
+-- -- NOTE: Don't uncomment, leaving this one just in case is useful in the future
 -- vim.tbl_deep_extend('keep', lspconfig, {
--- 	gnopls = {
--- 		name = 'gnopls',
---              filetypes = { "gno", "gnomod" },
--- 		cmd = { "gnopls", "serve", "--gnoroot", vim.fn.expand('$HOME/Projects/gnolang/gno') },
--- 	}
--- })
-
--- NOTE: Configure gnopls (no need to run vim.lsp.start with these settings)
--- require('lspconfig.configs').gnopls = {
---   default_config = {
+--   gnopls = {
 --     name = 'gnopls',
 --     filetypes = { "gno", "gnomod" },
 --     cmd = { "gnopls", "serve", "--gnoroot", vim.fn.expand('$HOME/Projects/gnolang/gno') },
---     settings = {},
---   };
--- }
--- lspconfig.gnopls.setup({
---   capabilities = capabilities,
---   on_attach = on_attach,
---   filetypes = { "gno", "gnomod" },
---   root_dir = util.root_pattern("gno.mod"),
+--   }
 -- })
 
--- NOTE: The gnols dies on initialize
--- -- vim.lsp.set_log_level('debug')
--- require('lspconfig.configs').gnols = {
---   default_config = {
--- 		name = 'gnols',
---     filetypes = { "gno", "gnomod" },
--- 		cmd = { "gnols" },
---     settings = {
---       root = vim.fn.expand('$HOME/Projects/gnolang/gno'),
---     },
---   };
--- }
--- lspconfig.gnols.setup({
---   capabilities = capabilities,
---   on_attach = on_attach,
---   filetypes = { "gno", "gnomod" },
---   root_dir = util.root_pattern("gno.mod"),
---   -- root_dir = vim.fn.expand('$HOME/Projects/gnolang/gno'),
--- })
+-- NOTE: Uncomment to debug the LSP server messages
+-- vim.lsp.set_log_level('debug')
+
+-- NOTE: Configure gnopls (no need to run vim.lsp.start with these settings)
+require('lspconfig.configs').gnopls = {
+  default_config = {
+    name = 'gnopls',
+    filetypes = { "gno", "gnomod" },
+    cmd = { "gnopls", "serve", "--gnoroot", vim.fn.expand('$HOME/Projects/gnolang/gno') },
+    root_dir = vim.fn.expand('%:p:h'),
+    settings = {
+      root = vim.fn.expand('$HOME/Projects/gnolang/gno'),
+    },
+  };
+}
+lspconfig.gnopls.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  filetypes = { "gno", "gnomod" },
+  root_dir = util.root_pattern("gno.mod"),
+})
 
 lspconfig.tsserver.setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
-
 
 lspconfig.lua_ls.setup({
   settings = {
