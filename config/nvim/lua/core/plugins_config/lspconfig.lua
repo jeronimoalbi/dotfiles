@@ -58,7 +58,7 @@ lspconfig.gopls.setup({
 --   }
 -- })
 
--- NOTE: Uncomment to debug the LSP server messages
+-- NOTE: Uncomment to debug the LSP server messages ($HOME/.local/state/nvim/lsp.log)
 -- vim.lsp.set_log_level('debug')
 
 -- NOTE: Configure gnopls (no need to run vim.lsp.start with these settings)
