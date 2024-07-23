@@ -18,6 +18,9 @@ vim.o.splitright = false
 vim.o.splitbelow = false
 vim.o.mouse = 'a'
 
+-- Disable code folding
+vim.o.foldenable = false
+
 -- Disable making a backup before overwriting a file
 vim.o.writebackup = false
 
