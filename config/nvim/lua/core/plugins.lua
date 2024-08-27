@@ -105,6 +105,7 @@ local plugins = {
   { "tpope/vim-fugitive" },
   { "lewis6991/gitsigns.nvim" },
   { "lukas-reineke/indent-blankline.nvim", main = "ibl" },
+  { "wellle/context.vim" },
   {
     "numToStr/Comment.nvim",
     lazy = false,
