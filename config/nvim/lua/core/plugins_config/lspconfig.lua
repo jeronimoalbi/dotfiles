@@ -66,7 +66,8 @@ require('lspconfig.configs').gnopls = {
   default_config = {
     name = 'gnopls',
     filetypes = { "gno", "gnomod" },
-    cmd = { "gnopls", "serve", "--gnoroot", vim.fn.expand('$HOME/Projects/gnolang/gno') },
+    cmd = { "gnopls", "serve" },
+    cmd_env = { GNOROOT = vim.fn.expand('$HOME/Projects/gnolang/gno') },
     root_dir = vim.fn.expand('%:p:h'),
     settings = {
       root = vim.fn.expand('$HOME/Projects/gnolang/gno'),
