@@ -154,7 +154,11 @@ local plugins = {
   },
   { "HerringtonDarkholme/yats.vim", ft = "typescript" },
   { "navarasu/onedark.nvim" },
-  { "simrat39/symbols-outline.nvim" },
+  {
+    "hedyhli/outline.nvim",
+    lazy = true,
+    cmd = { "Outline", "OutlineOpen" },
+  },
   { "geseq/tengo-vim" },
 }
 

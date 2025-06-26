@@ -5,6 +5,6 @@ require("mason-lspconfig").setup({
     "rust_analyzer",
     "gopls",
     "golangci_lint_ls",
-    "tsserver",
+    "ts_ls",
   },
 })

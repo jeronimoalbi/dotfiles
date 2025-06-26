@@ -65,7 +65,7 @@ lspconfig.gopls.setup({
 require('lspconfig.configs').gnopls = {
   default_config = {
     name = 'gnopls',
-    filetypes = { "gno", "gnomod" },
+    filetypes = { "gno" },
     cmd = { "gnopls", "serve" },
     cmd_env = { GNOROOT = vim.fn.expand('$HOME/Projects/gnolang/gno') },
     root_dir = vim.fn.expand('%:p:h'),
@@ -77,11 +77,11 @@ require('lspconfig.configs').gnopls = {
 lspconfig.gnopls.setup({
   capabilities = capabilities,
   on_attach = on_attach,
-  filetypes = { "gno", "gnomod" },
-  root_dir = util.root_pattern("gno.mod"),
+  filetypes = { "gno" },
+  root_dir = util.root_pattern("gnomod.toml"),
 })
 
-lspconfig.tsserver.setup({
+lspconfig.ts_ls.setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
@@ -97,7 +97,11 @@ lspconfig.lua_ls.setup({
       },
       completion = {
         callSnippet = "Replace",
-      }
+      },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = { 'vim' },
+      },
     }
   },
   on_attach = on_attach,

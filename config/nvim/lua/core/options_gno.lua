@@ -8,8 +8,7 @@ vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
   group = "gno",
   pattern = "*.gno",
   callback = function ()
-    vim.cmd("set filetype=gno")
-
+    vim.opt_local.filetype = "gno"
     -- NOTE: Right now LSP is started using lspconfig otherwise it could be started here
     -- vim.lsp.start({
     --   name = "gnopls",
