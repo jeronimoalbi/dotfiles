@@ -29,7 +29,7 @@ vim.keymap.set("n", "<leader>g", builtin.git_files, {
   noremap = true,
   silent = true,
 })
-vim.keymap.set("n", "<leader>f", builtin.live_grep, {
+vim.keymap.set("n", "<leader>r", builtin.live_grep, {
   desc = "Live Grep",
   noremap = true,
   silent = true,

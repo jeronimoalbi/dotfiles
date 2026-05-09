@@ -15,43 +15,65 @@ vim.opt.rtp:prepend(lazypath)
 
 -- List of installed plugins
 local plugins = {
+  -- Notifications (eager — overrides vim.notify before anything else loads)
   { "rcarriga/nvim-notify", lazy = false },
-  { "folke/zen-mode.nvim", opts = { } },
-  { "folke/twilight.nvim", opts = { } },
-  { "ellisonleao/gruvbox.nvim", priority = 1000, config = false },
-  { "rebelot/kanagawa.nvim" },
+
+  -- Focus modes
+  { "folke/zen-mode.nvim", cmd = "ZenMode", opts = {} },
+  { "folke/twilight.nvim", cmd = "Twilight", opts = {} },
+
+  -- Colorschemes
+  { "rebelot/kanagawa.nvim", priority = 1000, lazy = false },
+  { "ellisonleao/gruvbox.nvim", priority = 1000, lazy = true, config = false },
+  { "navarasu/onedark.nvim", lazy = true },
+
+  -- Icons
   { "nvim-tree/nvim-web-devicons", lazy = true },
+
+  -- File explorer
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
+    cmd = "Neotree",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
     }
   },
+
+  -- Status line
   {
     "nvim-lualine/lualine.nvim",
+    event = "VeryLazy",
     config = false,
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
-  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+
+  -- Syntax / parsing
+  {
+    "nvim-treesitter/nvim-treesitter",
+    event = { "BufReadPost", "BufNewFile" },
+    build = ":TSUpdate",
+  },
+
+  -- Fuzzy finder
   {
     "nvim-telescope/telescope.nvim",
+    event = "VeryLazy",
     dependencies = {
       { "nvim-lua/plenary.nvim" },
-      -- Only load if make is available
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make", cond = vim.fn.executable 'make' == 1 },
+      { "debugloop/telescope-undo.nvim" },
     },
   },
-  {
-    "debugloop/telescope-undo.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-  },
-  { "williamboman/mason.nvim" },
-  { "williamboman/mason-lspconfig.nvim" },
+
+  -- LSP toolchain
+  { "williamboman/mason.nvim", event = "VeryLazy" },
+  { "williamboman/mason-lspconfig.nvim", event = "VeryLazy" },
   {
     "neovim/nvim-lspconfig",
+    event = "VeryLazy",
     dependencies = {
       { "williamboman/mason.nvim" },
       { "williamboman/mason-lspconfig.nvim" },
@@ -68,55 +90,65 @@ local plugins = {
       }
     },
   },
+
+  -- Formatting (replaces none-ls)
+  { "stevearc/conform.nvim", event = "BufWritePre" },
+
+  -- Linting (replaces none-ls)
+  { "mfussenegger/nvim-lint", event = { "BufReadPost", "BufWritePost" } },
+
+  -- Session management
+  { "rmagatti/auto-session", lazy = false },
+
+  -- Rust (replaces rust-tools.nvim)
   {
-    "nvimtools/none-ls.nvim",
-    dependencies = {
-      { "nvimtools/none-ls-extras.nvim" },
-      { "nvim-lua/plenary.nvim" },
-      { "neovim/nvim-lspconfig" },
-    },
-  },
-  {
-    "rmagatti/auto-session",
-    lazy = false,
-  },
-  {
-    "simrat39/rust-tools.nvim",
+    "mrcjkb/rustaceanvim",
+    version = "^5",
     ft = "rust",
-    dependencies = {
-      { "neovim/nvim-lspconfig" },
-      { "hrsh7th/nvim-cmp" },
-    },
   },
+
+  -- Rust crates.io integration
   {
     'saecki/crates.nvim',
-    tag = 'v0.3.0',
+    version = "*",
+    ft = "toml",
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
       require('crates').setup()
     end,
   },
+
+  -- LSP progress UI
   {
     "j-hui/fidget.nvim",
-    tag = "legacy",
     event = "LspAttach",
-    config = function()
-      require('fidget').setup()
-    end,
+    opts = {},
   },
-  { "tpope/vim-sleuth" },
-  { "folke/neodev.nvim" },
-  { "tpope/vim-fugitive" },
-  { "lewis6991/gitsigns.nvim" },
-  { "lukas-reineke/indent-blankline.nvim", main = "ibl" },
-  { "wellle/context.vim" },
+
+  -- Auto-detect indentation
+  { "tpope/vim-sleuth", event = "BufReadPost" },
+
+  -- Neovim API completion (replaces neodev.nvim)
+  { "folke/lazydev.nvim", ft = "lua", opts = {} },
+
+  -- Git
+  { "tpope/vim-fugitive", event = "VeryLazy" },
+  { "lewis6991/gitsigns.nvim", event = "BufReadPost" },
+
+  -- Visual helpers
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl", event = "BufReadPost" },
+  { "wellle/context.vim", event = "BufReadPost" },
+
+  -- Commenting
   {
     "numToStr/Comment.nvim",
-    lazy = false,
+    event = "BufReadPost",
     config = function()
       require('Comment').setup()
     end,
   },
+
+  -- Notes
   {
     "epwalsh/obsidian.nvim",
     version = "*",
@@ -132,9 +164,7 @@ local plugins = {
       "nvim-treesitter/nvim-treesitter",
     },
     opts = {
-      -- Either 'wiki' or 'markdown'
       preferred_link_style = "wiki",
-
       workspaces = {
         {
           name = "work",
@@ -144,26 +174,30 @@ local plugins = {
       picker = {
         name = "telescope.nvim",
         mappings = {
-          -- Create a new note from your query.
           new = "<C-x>",
-          -- Insert a link to the selected note.
           insert_link = "<C-l>",
         },
       },
     },
   },
+
+  -- Markdown
   {
     "preservim/vim-markdown",
+    ft = { "markdown" },
     dependencies = { 'godlygeek/tabular' },
   },
+
+  -- Language syntax
   { "HerringtonDarkholme/yats.vim", ft = "typescript" },
-  { "navarasu/onedark.nvim" },
+  { "geseq/tengo-vim", event = "VeryLazy" },
+
+  -- Symbol outline
   {
     "hedyhli/outline.nvim",
     lazy = true,
     cmd = { "Outline", "OutlineOpen" },
   },
-  { "geseq/tengo-vim" },
 }
 
 -- Plugin manager options

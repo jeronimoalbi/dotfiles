@@ -25,6 +25,14 @@ vim.o.foldenable = false
 vim.o.writebackup = false
 
 -- Copy yanked text to system clipboard
+if vim.fn.has("linux") == 1 then
+  local has_clip = vim.fn.executable("xclip") == 1
+    or vim.fn.executable("xsel") == 1
+    or vim.fn.executable("wl-copy") == 1
+  if not has_clip then
+    vim.notify("No clipboard provider found. Install xclip, xsel, or wl-clipboard.", vim.log.levels.WARN)
+  end
+end
 vim.o.clipboard = "unnamedplus"
 
 -- Enable break indent

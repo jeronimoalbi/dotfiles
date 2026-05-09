@@ -79,6 +79,18 @@ if [[ $OSTYPE == darwin* ]]; then
   [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun" # bun completions
 
   test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+elif [[ $OSTYPE == linux* ]]; then
+  # NVM
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+  # Snap binaries (Ubuntu/Debian)
+  [ -d /snap/bin ] && export PATH="/snap/bin:$PATH"
+
+  # Bun completions
+  [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 fi
 
 autoload -U compinit; compinit

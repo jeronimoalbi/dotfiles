@@ -4,7 +4,10 @@ require("mason-lspconfig").setup({
     "lua_ls",
     "rust_analyzer",
     "gopls",
-    "golangci_lint_ls",
     "ts_ls",
+  },
+  handlers = {
+    -- Prevent golangci_lint_ls from auto-starting; nvim-lint handles golangci-lint
+    golangci_lint_ls = function() end,
   },
 })

@@ -9,6 +9,7 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'vsnip' },
+    { name = 'path' },
   }, {
     { name = 'buffer' },
   }),
@@ -22,4 +23,19 @@ cmp.setup({
       select = true,
     }),
   }),
+})
+
+-- Search completion
+cmp.setup.cmdline('/', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = { { name = 'buffer' } },
+})
+
+-- Command-line completion
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources(
+    { { name = 'path' } },
+    { { name = 'cmdline' } }
+  ),
 })
