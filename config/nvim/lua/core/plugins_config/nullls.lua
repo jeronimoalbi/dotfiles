@@ -26,9 +26,9 @@ null_ls.setup({
             return { "--edition=2021" }
         end,
     }),
-    null_ls.builtins.formatting.prettier.with({
-      filetypes = { "typescript", "typescriptreact", "css", "scss" },
-    }),
+    -- null_ls.builtins.formatting.prettier.with({
+    --   filetypes = { "typescript", "typescriptreact", "css", "scss" },
+    -- }),
     -- Linters
     null_ls.builtins.diagnostics.golangci_lint,
     require("none-ls.diagnostics.eslint").with({
