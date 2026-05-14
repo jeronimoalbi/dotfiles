@@ -3,10 +3,10 @@ require("conform").setup({
     go   = { "goimports", "gofumpt" },
     gno  = { "gofumpt" },
     rust = { "rustfmt" },
-    typescript      = { "prettier" },
-    typescriptreact = { "prettier" },
-    css  = { "prettier" },
-    scss = { "prettier" },
+    -- typescript      = { "prettier" },
+    -- typescriptreact = { "prettier" },
+    -- css  = { "prettier" },
+    -- scss = { "prettier" },
   },
   formatters = {
     rustfmt = {
