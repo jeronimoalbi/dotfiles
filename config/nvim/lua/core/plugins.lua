@@ -53,7 +53,8 @@ local plugins = {
   -- Syntax / parsing
   {
     "nvim-treesitter/nvim-treesitter",
-    event = { "BufReadPost", "BufNewFile" },
+    branch = "main",
+    lazy = false,
     build = ":TSUpdate",
   },
 

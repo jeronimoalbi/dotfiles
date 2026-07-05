@@ -1,16 +1,25 @@
-require("nvim-treesitter.configs").setup({
-  ensure_installed = {
+local parsers = {
+  "lua", "go", "rust", "vim", "python",
+  "typescript", "javascript",
+  "yaml", "json", "toml",
+  "bash",
+  "markdown", "markdown_inline",
+}
+
+require("nvim-treesitter").install(parsers)
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {
     "lua", "go", "rust", "vim", "python",
     "typescript", "javascript",
     "yaml", "json", "toml",
-    "bash",
-    "markdown", "markdown_inline",
+    "sh", "bash",
+    "markdown",
+    "gno",
   },
-  sync_install = false,
-  auto_install = true,
-  highlight = {
-    enable = true,
-  },
+  callback = function()
+    vim.treesitter.start()
+  end,
 })
 
-vim.treesitter.language.register('go', 'gno')
+vim.treesitter.language.register("go", "gno")
