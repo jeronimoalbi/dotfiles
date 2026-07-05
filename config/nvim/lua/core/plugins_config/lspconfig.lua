@@ -2,14 +2,13 @@ local lsp_utils = require("core.lsp-utils")
 local on_attach = lsp_utils.on_attach
 local capabilities = lsp_utils.make_capabilities()
 
-local lspconfig = require('lspconfig')
-local util = require('lspconfig.util')
-
-lspconfig.gopls.setup({
+-- Applied as defaults to every server configured below
+vim.lsp.config('*', {
   capabilities = capabilities,
   on_attach = on_attach,
-  filetypes = { "go", "gomod", "gowork", "gotmpl" },
-  root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+})
+
+vim.lsp.config('gopls', {
   settings = {
     gopls = {
       usePlaceholders = true,
@@ -23,31 +22,19 @@ lspconfig.gopls.setup({
 -- NOTE: Uncomment to debug the LSP server messages ($HOME/.local/state/nvim/lsp.log)
 -- vim.lsp.set_log_level('debug')
 
-require('lspconfig.configs').gnopls = {
-  default_config = {
-    name = 'gnopls',
-    filetypes = { "gno" },
-    cmd = { "gnopls", "serve" },
-    cmd_env = { GNOROOT = vim.fn.expand('$HOME/Projects/gnolang/gno') },
-    root_dir = vim.fn.expand('%:p:h'),
-    settings = {
-      root = vim.fn.expand('$HOME/Projects/gnolang/gno'),
-    },
-  };
-}
-lspconfig.gnopls.setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
+vim.lsp.config('gnopls', {
+  cmd = { "gnopls", "serve" },
+  cmd_env = { GNOROOT = vim.fn.expand('$HOME/Projects/gnolang/gno') },
   filetypes = { "gno" },
-  root_dir = util.root_pattern("gnomod.toml"),
+  root_markers = { "gnomod.toml" },
+  settings = {
+    root = vim.fn.expand('$HOME/Projects/gnolang/gno'),
+  },
 })
 
-lspconfig.ts_ls.setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-})
+vim.lsp.config('ts_ls', {})
 
-lspconfig.lua_ls.setup({
+vim.lsp.config('lua_ls', {
   settings = {
     Lua = {
       workspace = {
@@ -64,11 +51,9 @@ lspconfig.lua_ls.setup({
       },
     }
   },
-  on_attach = on_attach,
-  capabilities = capabilities,
 })
 
-lspconfig.yamlls.setup({
+vim.lsp.config('yamlls', {
   settings = {
     yaml = {
       schemas = {
@@ -76,5 +61,6 @@ lspconfig.yamlls.setup({
       },
     },
   },
-  capabilities = capabilities,
 })
+
+vim.lsp.enable({ "gopls", "gnopls", "ts_ls", "lua_ls", "yamlls" })
