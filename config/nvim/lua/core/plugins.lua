@@ -104,7 +104,8 @@ local plugins = {
   -- Rust (replaces rust-tools.nvim)
   {
     "mrcjkb/rustaceanvim",
-    version = "^5",
+    version = "^9",
+    lazy = false,
     ft = "rust",
   },
 
@@ -112,6 +113,7 @@ local plugins = {
   {
     'saecki/crates.nvim',
     version = "*",
+    tag = "stable",
     ft = "toml",
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()

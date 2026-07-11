@@ -6,7 +6,7 @@ vim.g.rustaceanvim = {
     capabilities = lsp_utils.make_capabilities(),
     settings = {
       ["rust-analyzer"] = {
-        checkOnSave = { command = "clippy" },
+        check = { command = "clippy" },
       },
     },
   },
