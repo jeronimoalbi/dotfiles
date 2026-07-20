@@ -105,7 +105,6 @@ local plugins = {
   {
     "mrcjkb/rustaceanvim",
     version = "^9",
-    lazy = false,
     ft = "rust",
   },
 
