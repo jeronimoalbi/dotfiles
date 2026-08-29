@@ -4,6 +4,7 @@ export LS_COLORS=$LS_COLORS:'*.pyc=0;30'
 export GPG_TTY=$(tty)
 export GOPATH=$HOME/go
 export GNOROOT=$HOME/Projects/gnolang/gno
+export OLLAMA_CONTEXT_LENGTH=65536
 
 export PATH="$HOME/.local/bin:/usr/local/sbin:$PATH"
 export PATH="./node_modules/.bin:$PATH"
@@ -82,9 +83,12 @@ if [[ $OSTYPE == darwin* ]]; then
   test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 elif [[ $OSTYPE == linux* ]]; then
+  # Make sure Firefox knows Wayland is available
+  export MOZ_ENABLE_WAYLAND=1
+
   # NVM
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  export NVM_DIR="/usr/share/nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/init-nvm.sh"
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
   # Snap binaries (Ubuntu/Debian)
