@@ -1,0 +1,8 @@
+vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
+vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>", { silent = true })
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous [d]iagnostic" })
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next [d]iagnostic" })
+vim.keymap.set("n", "<leader>th", function()
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end, { desc = "[T]oggle inlay [h]ints" })
