@@ -1,8 +1,9 @@
-.claude
 Session.vim
 tags
 virtualenv
 venv
+.claude
 .DS_Store
 *.cache
 *.swp
+*.local.md
