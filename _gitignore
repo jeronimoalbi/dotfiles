@@ -1,9 +1,17 @@
+# Generic
 Session.vim
 tags
-virtualenv
-venv
 .claude
 .DS_Store
 *.cache
 *.swp
 *.local.md
+
+# Python related
+virtualenv
+venv
+
+# Rust related
+debug
+target
+**/*.rs.bk
