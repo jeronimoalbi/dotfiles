@@ -1,6 +1,7 @@
 # Generic
 Session.vim
 tags
+PLAN.md
 .claude
 .DS_Store
 *.cache
@@ -15,3 +16,4 @@ venv
 debug
 target
 **/*.rs.bk
+.fastembed_cache

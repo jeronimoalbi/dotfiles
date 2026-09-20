@@ -1,5 +1,20 @@
-require("core.options")
-require("core.options_gno")
-require("core.plugins")
-require("core.plugins_config")
-require("core.keymaps")
+-- Generic Neovim config (Go, Gno, Rust, ...). Layout mirrors nvim-rust.
+require("options")
+require("keymaps")
+require("gno")
+
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.uv.fs_stat(lazypath) then
+  vim.fn.system({
+    "git", "clone", "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup({ import = "plugins" }, {
+  change_detection = { notify = false },
+})
+
+require("lsp")
