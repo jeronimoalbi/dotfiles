@@ -38,13 +38,13 @@ return {
         -- Hunk navigation (falls back to built-in ]c/[c in diff mode)
         map("n", "]c", function()
           if vim.wo.diff then return "]c" end
-          vim.schedule(gs.next_hunk)
+          vim.schedule(function() gs.nav_hunk("next") end)
           return "<Ignore>"
         end, "Next hunk")
 
         map("n", "[c", function()
           if vim.wo.diff then return "[c" end
-          vim.schedule(gs.prev_hunk)
+          vim.schedule(function() gs.nav_hunk("prev") end)
           return "<Ignore>"
         end, "Prev hunk")
 

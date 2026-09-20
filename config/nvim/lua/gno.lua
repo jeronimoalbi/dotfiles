@@ -18,6 +18,17 @@ vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
   end
 })
 
+-- Indent like Go (nvim's go ftplugin does this for Go; there is none for Gno)
+vim.api.nvim_create_autocmd("FileType", {
+  group = "gno",
+  pattern = "gno",
+  callback = function()
+    vim.bo.expandtab = false
+    vim.bo.softtabstop = 0
+    vim.bo.shiftwidth = 0
+  end,
+})
+
 vim.api.nvim_create_augroup("gnotmpl", { clear = true })
 
 vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
