@@ -30,7 +30,10 @@ ZSH_THEME="robbyrussell"
 # git clone https://github.com/fdellwing/zsh-bat.git $ZSH_CUSTOM/plugins/zsh-bat
 # brew install bat
 #
-plugins=(git golang vi-mode encode64 zsh-autosuggestions zsh-syntax-highlighting zsh-bat)
+# fzf-tab
+# git clone https://github.com/Aloxaf/fzf-tab $ZSH_CUSTOM/plugins/fzf-tab
+#
+plugins=(git golang vi-mode encode64 fzf-tab zsh-autosuggestions zsh-syntax-highlighting zsh-bat)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -99,3 +102,16 @@ elif [[ $OSTYPE == linux* ]]; then
 fi
 
 autoload -U compinit; compinit
+
+# zoxide's own "cd <query><SPACE><TAB>" interactive fzf popup relies on a
+# special compadd/DSR trick that fzf-tab's completion capture breaks, so
+# let plain compsys (and thus zoxide) handle completion for `cd`.
+zstyle ':fzf-tab:complete:cd:*' disabled-on any
+
+if command -v fzf &> /dev/null; then
+  eval "$(fzf --zsh)"
+fi
+
+if command -v zoxide &> /dev/null; then
+  eval "$(zoxide init --cmd cd zsh)"
+fi
