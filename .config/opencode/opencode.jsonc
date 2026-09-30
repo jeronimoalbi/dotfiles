@@ -1,0 +1,51 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "llama.cpp/gemma4-e4b-it-q8_0",
+  "default_agent": "plan",
+  "provider": {
+    "llama.cpp": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "llama.cpp (Local)",
+      "options": {
+        "baseURL": "http://127.0.0.1:8080/v1",
+        "timeout": 1200000,
+        "headerTimeout": 1200000,
+        "chunkTimeout": 1200000
+      },
+      "models": {
+        "qwen3.5-9b-opus-distilled-q8_0": {
+          "name": "Qwen3.5 9B Opus Distilled",
+          "tools": true,
+          "limit": {
+            "context": 65536,
+            "output": 16384
+          }
+        },
+        "gemma4-e4b-it-q8_0": {
+          "name": "Gemma 4 E4B",
+          "limit": {
+            "context": 65536,
+            "output": 16384
+          }
+        }
+      }
+    }
+  },
+  "mcp": {
+    "Grep AI": {
+      "type": "local",
+      "command": ["grepai", "mcp-serve"],
+      "enabled": false
+    },
+    "Rust": {
+      "type": "local",
+      "command": ["rust-mcp-server"],
+      "enabled": false
+    },
+    "Gno.land": {
+      "type": "local",
+      "command": ["gnomcp"],
+      "enabled": false
+    }
+  }
+}

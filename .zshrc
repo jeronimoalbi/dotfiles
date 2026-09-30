@@ -4,7 +4,6 @@ export LS_COLORS=$LS_COLORS:'*.pyc=0;30'
 export GPG_TTY=$(tty)
 export GOPATH=$HOME/go
 export GNOROOT=$HOME/Projects/gnolang/gno
-export OLLAMA_CONTEXT_LENGTH=65536
 
 export PATH="$HOME/.local/bin:/usr/local/sbin:$PATH"
 export PATH="./node_modules/.bin:$PATH"
